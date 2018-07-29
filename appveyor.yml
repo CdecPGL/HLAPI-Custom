@@ -9,17 +9,17 @@ build:
   
 artifacts:
   - path: Unity-Technologies-networking/Output
-    name: HLAPI_CE_2017.4_fixes
+    name: HLAPI_Custom_2018.1
 
 image: Visual Studio 2017
 
 deploy:
-  description: 'HLAPI community edition 2017.4 fixes'
+  description: 'HLAPI custom 2018.1'
   provider: GitHub
   auth_token:
-    secure: G42snf8s5fEos7UfoRSW6eW+8rqGGMH3iw1ZCjRUjcUSKupHUfrKJMXQ11wbjRuW # your encrypted token from GitHub
-  artifact: Unity-Technologies-networking\HLAPI_CE_2017.4_fixes.zip            # upload all NuGet packages to release assets
+    secure: gY+wG+uwmwB9D1OdWPv1n7E6v9tctDlsl9s6lh77TPEbAvbIZvRlVg+h64vUjdbq
+  artifact: Unity-Technologies-networking\HLAPI_Custom_2018.1.zip
   draft: false
   prerelease: false
   on:
-    appveyor_repo_tag: true        # deploy on tag push only
+    appveyor_repo_tag: true
