@@ -6,4 +6,4 @@ Customized UNET HLAPI based on fixes branch of [HLAPI Community Edition](https:/
 
 Changes from original are:
 
-- make scene loading process customizable which enables you to implement fade in/out
+- make scene loading process customizable which enables us to implement fade in/out
