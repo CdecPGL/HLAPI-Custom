@@ -7,3 +7,4 @@ Customized UNET HLAPI based on fixes branch of [HLAPI Community Edition](https:/
 Changes from original are:
 
 - make scene loading process customizable which enables us to implement fade in/out
+- add protected property enableAutoClientSceneChangeOnStart to NetworkManager, which enables us to enable or disable scene change on client start
