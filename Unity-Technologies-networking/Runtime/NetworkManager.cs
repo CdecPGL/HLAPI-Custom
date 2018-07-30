@@ -743,6 +743,10 @@ namespace UnityEngine.Networking
                     conn.Send(MsgType.Scene, msg);
                 }
             }
+            else
+            {
+                if (LogFilter.logError) { Debug.LogError("ServerChangeClientSceneToNetworkScene scene isn't changed because network scene name is empty of offline scene"); }
+            }
         }
 
         protected virtual AsyncOperationWrapper LoadSceneAsync(string newSceneName) {
