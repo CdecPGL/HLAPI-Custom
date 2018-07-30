@@ -728,6 +728,23 @@ namespace UnityEngine.Networking
             s_StartPositions.Clear();
         }
 
+        protected void ServerChangeClientSceneToNetworkScene(NetworkConnection conn = null)
+        {
+            if (networkSceneName != "" && networkSceneName != m_OfflineScene)
+            {
+                if(conn == null)
+                {
+                    StringMessage msg = new StringMessage(networkSceneName);
+                    NetworkServer.SendToAll(MsgType.Scene, msg);
+                }
+                else
+                {
+                    StringMessage msg = new StringMessage(networkSceneName);
+                    conn.Send(MsgType.Scene, msg);
+                }
+            }
+        }
+
         protected virtual AsyncOperationWrapper LoadSceneAsync(string newSceneName) {
             return new AsyncOperationWrapper(SceneManager.LoadSceneAsync(newSceneName));
         }

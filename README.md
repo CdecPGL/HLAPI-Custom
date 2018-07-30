@@ -4,7 +4,40 @@
 
 Customized UNET HLAPI based on fixes branch of [HLAPI Community Edition](https://github.com/vis2k/HLAPI-Community-Edition).
 
-Changes from original are:
+## Additional Features
 
-- make scene loading process customizable which enables us to implement fade in/out
-- add protected property enableAutoClientSceneChangeOnStart to NetworkManager, which enables us to enable or disable scene change on client start
+- Customize scene loading process in NetworkManager
+- Enable/Disable client scene change when OnStartClient is called in NetworkManager
+- Change Client Scene from Server in NetworkManager
+
+### Customize scene loading process in NetworkManager
+
+```csharp
+protected virtual AsyncOperationWrapper NetworkManager.LoadSceneAsync(string newSceneName);
+```
+
+This method can be oveerrided to implement fade in/out in scene loading.
+
+The behavior of default implementation is same as that of original HLAPI.
+
+### Enable/Disable client scene change when OnStartClient is called in NetworkManager
+
+```csharp
+protected bool NetworkManager.enableAutoClientSceneChangeOnStart;
+```
+
+This flag enables us to controll automatic client scene changing when OnStartClient is called.
+
+Default value is true which is same behavior as that of original HLAPI.
+
+### Change Client Scene from Server in NetworkManager
+
+```csharp
+protected void NetworkManager.ServerChangeClientSceneToNetworkScene(NetworkConnection conn = null);
+```
+
+By calling this method, we can change specific/all clients scene to scene of server.
+This is usefull when NetworkManager.enableAutoClientSceneChangeOnStart is false and you want to change client scene manually.
+
+If you pass a instance of NetworkConnection, a client of the connection will change its scene.
+Otherwise, all clients will change their scenes.
