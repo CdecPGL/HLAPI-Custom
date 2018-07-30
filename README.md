@@ -23,10 +23,12 @@ The behavior of default implementation is same as that of original HLAPI.
 ### Enable/Disable client scene change when OnStartClient is called in NetworkManager
 
 ```csharp
-protected bool NetworkManager.enableAutoClientSceneChangeOnStart;
+protected bool NetworkManager.enableServerAutoClientSceneChangeOnStartClient;
 ```
 
 This flag enables us to controll automatic client scene changing when OnStartClient is called.
+
+This value is used in only server and it is better to set the value in OnStartServer.
 
 Default value is true which is same behavior as that of original HLAPI.
 

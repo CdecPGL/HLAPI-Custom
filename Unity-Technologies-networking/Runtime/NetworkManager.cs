@@ -90,7 +90,7 @@ namespace UnityEngine.Networking
         [SerializeField] PlayerSpawnMethod m_PlayerSpawnMethod;
         [SerializeField] string m_OfflineScene = "";
         [SerializeField] string m_OnlineScene = "";
-        bool m_EnableAutoClientSceneChangeOnStart = true;
+        bool m_EnableServerAutoClientSceneChangeOnStartClient = true;
         [SerializeField] List<GameObject> m_SpawnPrefabs = new List<GameObject>();
 
         [SerializeField] bool m_CustomConfig;
@@ -140,7 +140,7 @@ namespace UnityEngine.Networking
         public PlayerSpawnMethod playerSpawnMethod { get { return m_PlayerSpawnMethod; } set { m_PlayerSpawnMethod = value; } }
         public string offlineScene           { get { return m_OfflineScene; }  set { m_OfflineScene = value; } }
         public string onlineScene            { get { return m_OnlineScene; }  set { m_OnlineScene = value; } }
-        protected bool enableAutoClientSceneChangeOnStart { get { return m_EnableAutoClientSceneChangeOnStart; } set { m_EnableAutoClientSceneChangeOnStart = value; } }
+        protected bool enableServerAutoClientSceneChangeOnStartClient { get { return m_EnableServerAutoClientSceneChangeOnStartClient; } set { m_EnableServerAutoClientSceneChangeOnStartClient = value; } }
         public List<GameObject> spawnPrefabs { get { return m_SpawnPrefabs; }}
 
         public List<Transform> startPositions { get { return s_StartPositions; }}
@@ -935,7 +935,7 @@ namespace UnityEngine.Networking
                 }
             }
 
-            if (networkSceneName != "" && networkSceneName != m_OfflineScene && m_EnableAutoClientSceneChangeOnStart)
+            if (networkSceneName != "" && networkSceneName != m_OfflineScene && m_EnableServerAutoClientSceneChangeOnStartClient)
             {
                 StringMessage msg = new StringMessage(networkSceneName);
                 netMsg.conn.Send(MsgType.Scene, msg);
