@@ -41,3 +41,14 @@ This is usefull when NetworkManager.enableAutoClientSceneChangeOnStart is false 
 
 If you pass a instance of NetworkConnection, a client of the connection will change its scene.
 Otherwise, all clients will change their scenes.
+
+## Version Numbering Rule
+
+```text
+<Major Version>.<Minor Version>.<Sub Version>
+
+```
+
+- Breaking Change: Increment major version number
+- Feature Addition but Not Breaking Change: Increment minor version number
+- Bug Fix: Increment sub version number
