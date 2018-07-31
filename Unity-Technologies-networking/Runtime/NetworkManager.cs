@@ -90,7 +90,6 @@ namespace UnityEngine.Networking
         [SerializeField] PlayerSpawnMethod m_PlayerSpawnMethod;
         [SerializeField] string m_OfflineScene = "";
         [SerializeField] string m_OnlineScene = "";
-        bool m_EnableServerAutoClientSceneChangeOnStartClient = true;
         [SerializeField] List<GameObject> m_SpawnPrefabs = new List<GameObject>();
 
         [SerializeField] bool m_CustomConfig;
@@ -140,7 +139,6 @@ namespace UnityEngine.Networking
         public PlayerSpawnMethod playerSpawnMethod { get { return m_PlayerSpawnMethod; } set { m_PlayerSpawnMethod = value; } }
         public string offlineScene           { get { return m_OfflineScene; }  set { m_OfflineScene = value; } }
         public string onlineScene            { get { return m_OnlineScene; }  set { m_OnlineScene = value; } }
-        protected bool enableServerAutoClientSceneChangeOnStartClient { get { return m_EnableServerAutoClientSceneChangeOnStartClient; } set { m_EnableServerAutoClientSceneChangeOnStartClient = value; } }
         public List<GameObject> spawnPrefabs { get { return m_SpawnPrefabs; }}
 
         public List<Transform> startPositions { get { return s_StartPositions; }}
@@ -728,27 +726,6 @@ namespace UnityEngine.Networking
             s_StartPositions.Clear();
         }
 
-        protected void ServerChangeClientSceneToNetworkScene(NetworkConnection conn = null)
-        {
-            if (networkSceneName != "" && networkSceneName != m_OfflineScene)
-            {
-                if(conn == null)
-                {
-                    StringMessage msg = new StringMessage(networkSceneName);
-                    NetworkServer.SendToAll(MsgType.Scene, msg);
-                }
-                else
-                {
-                    StringMessage msg = new StringMessage(networkSceneName);
-                    conn.Send(MsgType.Scene, msg);
-                }
-            }
-            else
-            {
-                if (LogFilter.logError) { Debug.LogError("ServerChangeClientSceneToNetworkScene scene isn't changed because network scene name is empty of offline scene"); }
-            }
-        }
-
         protected virtual AsyncOperationWrapper LoadSceneAsync(string newSceneName) {
             return new AsyncOperationWrapper(SceneManager.LoadSceneAsync(newSceneName));
         }
@@ -939,7 +916,7 @@ namespace UnityEngine.Networking
                 }
             }
 
-            if (networkSceneName != "" && networkSceneName != m_OfflineScene && m_EnableServerAutoClientSceneChangeOnStartClient)
+            if (networkSceneName != "" && networkSceneName != m_OfflineScene)
             {
                 StringMessage msg = new StringMessage(networkSceneName);
                 netMsg.conn.Send(MsgType.Scene, msg);
