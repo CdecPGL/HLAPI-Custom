@@ -7,14 +7,7 @@ using UnityEngine.Networking.NetworkSystem;
 using UnityEngine.Networking.Types;
 using UnityEngine.SceneManagement;
 
-namespace UnityEngine.Networking
-{
-    public enum PlayerSpawnMethod
-    {
-        Random,
-        RoundRobin
-    };
-
+namespace UnityEngine.Custom{
     public class AsyncOperationWrapper {
         public event Action<AsyncOperation> completed = (AsyncOperation handler) => { };
 
@@ -58,6 +51,8 @@ namespace UnityEngine.Networking
             }
         }
 
+        public AsyncOperationWrapper() {}
+
         public AsyncOperationWrapper(AsyncOperation async_op) 
         {
             SetAsyncOperationInstance(async_op);
@@ -71,6 +66,15 @@ namespace UnityEngine.Networking
 
         private AsyncOperation m_AsyncOperationInstance = null;
     }
+}
+
+namespace UnityEngine.Networking
+{
+    public enum PlayerSpawnMethod
+    {
+        Random,
+        RoundRobin
+    };
 
     [AddComponentMenu("Network/NetworkManager")]
     public class NetworkManager : MonoBehaviour
@@ -205,7 +209,7 @@ namespace UnityEngine.Networking
         static RemovePlayerMessage s_RemovePlayerMessage = new RemovePlayerMessage();
         static ErrorMessage s_ErrorMessage = new ErrorMessage();
 
-        static AsyncOperationWrapper s_LoadingSceneAsync;
+        static Custom.AsyncOperationWrapper s_LoadingSceneAsync;
         static NetworkConnection s_ClientReadyConnection;
 
         // this is used to persist network address between scenes.
@@ -726,8 +730,8 @@ namespace UnityEngine.Networking
             s_StartPositions.Clear();
         }
 
-        protected virtual AsyncOperationWrapper LoadSceneAsync(string newSceneName) {
-            return new AsyncOperationWrapper(SceneManager.LoadSceneAsync(newSceneName));
+        protected virtual Custom.AsyncOperationWrapper LoadSceneAsync(string newSceneName) {
+            return new Custom.AsyncOperationWrapper(SceneManager.LoadSceneAsync(newSceneName));
         }
 
         void CleanupNetworkIdentities()
