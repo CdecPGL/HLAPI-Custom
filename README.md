@@ -2,7 +2,7 @@
 
 [![Build status](https://ci.appveyor.com/api/projects/status/g22xd40dlg6opj9n/branch/master?svg=true)](https://ci.appveyor.com/project/CdecPGL/hlapi-custom/branch/master)
 
-Customized UNET HLAPI based on fixes branch of [HLAPI Community Edition](https://github.com/vis2k/HLAPI-Community-Edition).
+Customized UNet HLAPI based on fixes branch of [Mirror](https://github.com/vis2k/Mirror).
 
 ## Additional Features
 
