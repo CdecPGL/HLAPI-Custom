@@ -1,8 +1,7 @@
-using System;
+using UnityEngine;
 
 #if ENABLE_UNET
-namespace UnityEngine.Networking
-{
+namespace PlanetaGameLabo.UNetCustom {
     // This class represents the player entity in a network game, there can be multiple players per client
     // when there are multiple people playing on one machine
     // The server has one connection per client, and the connection has the player instances of that client

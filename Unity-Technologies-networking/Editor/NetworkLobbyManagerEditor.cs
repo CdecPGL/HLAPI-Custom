@@ -1,11 +1,10 @@
 #if ENABLE_UNET
-using System;
+using PlanetaGameLabo.UNetCustom;
+using UnityEditor;
 using UnityEngine;
-using UnityEngine.Networking;
 using UnityObject = UnityEngine.Object;
 
-namespace UnityEditor
-{
+namespace PlanetaGameLabo.Editor {
     [CustomEditor(typeof(NetworkLobbyManager), true)]
     [CanEditMultipleObjects]
     class NetworkLobbyManagerEditor : NetworkManagerEditor

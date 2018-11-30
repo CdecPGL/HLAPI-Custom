@@ -1,8 +1,8 @@
 #if ENABLE_UNET
 using System;
+using UnityEngine;
 
-namespace UnityEngine.Networking
-{
+namespace PlanetaGameLabo.UNetCustom {
     [Serializable]
     public struct NetworkInstanceId
     {

@@ -1,12 +1,10 @@
 #if ENABLE_UNET
 
-using System;
+using PlanetaGameLabo.UNetCustom.NetworkSystem;
 using UnityEngine;
-using UnityEngine.Networking.NetworkSystem;
 using UnityEngine.SceneManagement;
 
-namespace UnityEngine.Networking
-{
+namespace PlanetaGameLabo.UNetCustom {
     [DisallowMultipleComponent]
     [AddComponentMenu("Network/NetworkLobbyPlayer")]
     public class NetworkLobbyPlayer : NetworkBehaviour

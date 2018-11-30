@@ -3,7 +3,7 @@ using System;
 using System.Text;
 using UnityEngine;
 
-namespace UnityEngine.Networking
+namespace PlanetaGameLabo.UNetCustom
 {
     /*
     // Binary stream Writer. Supports simple types, buffers, arrays, structs, and nested types

@@ -1,9 +1,9 @@
 #if ENABLE_UNET
 using System;
 using UnityEngine;
-using UnityEngine.Networking.NetworkSystem;
+using PlanetaGameLabo.UNetCustom.NetworkSystem;
 
-namespace UnityEngine.Networking
+namespace PlanetaGameLabo.UNetCustom
 {
     [DisallowMultipleComponent]
     [AddComponentMenu("Network/NetworkAnimator")]

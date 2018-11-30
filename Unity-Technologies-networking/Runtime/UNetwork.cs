@@ -1,9 +1,9 @@
 using System;
+using UnityEngine;
 
 #if ENABLE_UNET
 
-namespace UnityEngine.Networking
-{
+namespace PlanetaGameLabo.UNetCustom {
     // Handles network messages on client and server
     public delegate void NetworkMessageDelegate(NetworkMessage netMsg);
 

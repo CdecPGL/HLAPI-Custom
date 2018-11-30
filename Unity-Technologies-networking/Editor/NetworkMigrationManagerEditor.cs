@@ -1,14 +1,12 @@
 #if ENABLE_UNET
 #if ENABLE_UNET_HOST_MIGRATION
-using System;
+using PlanetaGameLabo.UNetCustom;
+using UnityEditor;
 using UnityEngine;
-using UnityEngine.Networking;
 
-namespace UnityEditor
-{
+namespace PlanetaGameLabo.Editor {
     [CustomEditor(typeof(NetworkMigrationManager), true)]
-    public class NetworkMigrationManagerEditor : Editor
-    {
+    public class NetworkMigrationManagerEditor : UnityEditor.Editor {
         bool m_Initialized;
         NetworkMigrationManager m_Manager;
 

@@ -1,10 +1,10 @@
 #if ENABLE_UNET
-using System;
+using PlanetaGameLabo.UNetCustom.NetworkSystem;
 using System.Collections.Generic;
-using UnityEngine.Networking.NetworkSystem;
+using UnityEngine;
+using UnityEngine.Networking;
 
-namespace UnityEngine.Networking
-{
+namespace PlanetaGameLabo.UNetCustom {
     public class ClientScene
     {
         static List<PlayerController> s_LocalPlayers = new List<PlayerController>();
@@ -284,7 +284,7 @@ namespace UnityEngine.Networking
                 s_ReadyConnection.RemovePlayerController(playerControllerId);
                 s_LocalPlayers[playerControllerId] = new PlayerController();
 
-                Object.Destroy(playerController.gameObject);
+                UnityEngine.Object.Destroy(playerController.gameObject);
                 return true;
             }
             if (LogFilter.logError) { Debug.LogError("Failed to find player ID " + playerControllerId); }
@@ -544,7 +544,7 @@ namespace UnityEngine.Networking
             SpawnDelegate handler;
             if (NetworkScene.GetPrefab(s_ObjectSpawnMessage.assetId, out prefab))
             {
-                var obj = (GameObject)Object.Instantiate(prefab, s_ObjectSpawnMessage.position, s_ObjectSpawnMessage.rotation);
+                var obj = (GameObject)UnityEngine.Object.Instantiate(prefab, s_ObjectSpawnMessage.position, s_ObjectSpawnMessage.rotation);
                 if (LogFilter.logDebug)
                 {
                     Debug.Log("Client spawn handler instantiating [netId:" + s_ObjectSpawnMessage.netId + " asset ID:" + s_ObjectSpawnMessage.assetId + " pos:" + s_ObjectSpawnMessage.position + " rotation: " + s_ObjectSpawnMessage.rotation + "]");
@@ -667,7 +667,7 @@ namespace UnityEngine.Networking
                     // default handling
                     if (localObject.sceneId.IsEmpty())
                     {
-                        Object.Destroy(localObject.gameObject);
+                        UnityEngine.Object.Destroy(localObject.gameObject);
                     }
                     else
                     {

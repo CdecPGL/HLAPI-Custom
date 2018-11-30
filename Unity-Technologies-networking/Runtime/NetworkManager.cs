@@ -1,13 +1,15 @@
 #if ENABLE_UNET
+using PlanetaGameLabo.UNetCustom.NetworkSystem;
 using System;
 using System.Collections.Generic;
 using System.Net;
+using UnityEngine;
+using UnityEngine.Networking;
 using UnityEngine.Networking.Match;
-using UnityEngine.Networking.NetworkSystem;
 using UnityEngine.Networking.Types;
 using UnityEngine.SceneManagement;
 
-namespace UnityEngine.Custom{
+namespace PlanetaGameLabo.UNetCustom {
     public class AsyncOperationWrapper {
         public event Action<AsyncOperation> completed = (AsyncOperation handler) => { };
 
@@ -33,7 +35,7 @@ namespace UnityEngine.Custom{
 
         public float progress {
             get {
-                return m_AsyncOperationInstance == null ? 0: m_AsyncOperationInstance.progress;
+                return m_AsyncOperationInstance == null ? 0 : m_AsyncOperationInstance.progress;
             }
         }
 
@@ -51,25 +53,20 @@ namespace UnityEngine.Custom{
             }
         }
 
-        public AsyncOperationWrapper() {}
+        public AsyncOperationWrapper() { }
 
-        public AsyncOperationWrapper(AsyncOperation async_op) 
-        {
+        public AsyncOperationWrapper(AsyncOperation async_op) {
             SetAsyncOperationInstance(async_op);
         }
 
-        public void SetAsyncOperationInstance(AsyncOperation async_op)
-        {
+        public void SetAsyncOperationInstance(AsyncOperation async_op) {
             m_AsyncOperationInstance = async_op;
             m_AsyncOperationInstance.completed += (AsyncOperation handler) => { completed(handler); };
         }
 
         private AsyncOperation m_AsyncOperationInstance = null;
     }
-}
 
-namespace UnityEngine.Networking
-{
     public enum PlayerSpawnMethod
     {
         Random,
@@ -209,7 +206,7 @@ namespace UnityEngine.Networking
         static RemovePlayerMessage s_RemovePlayerMessage = new RemovePlayerMessage();
         static ErrorMessage s_ErrorMessage = new ErrorMessage();
 
-        static Custom.AsyncOperationWrapper s_LoadingSceneAsync;
+        static AsyncOperationWrapper s_LoadingSceneAsync;
         static NetworkConnection s_ClientReadyConnection;
 
         // this is used to persist network address between scenes.
@@ -730,8 +727,8 @@ namespace UnityEngine.Networking
             s_StartPositions.Clear();
         }
 
-        protected virtual Custom.AsyncOperationWrapper LoadSceneAsync(string newSceneName) {
-            return new Custom.AsyncOperationWrapper(SceneManager.LoadSceneAsync(newSceneName));
+        protected virtual AsyncOperationWrapper LoadSceneAsync(string newSceneName) {
+            return new AsyncOperationWrapper(SceneManager.LoadSceneAsync(newSceneName));
         }
 
         void CleanupNetworkIdentities()
@@ -1177,7 +1174,7 @@ namespace UnityEngine.Networking
             if (m_PlayerSpawnMethod == PlayerSpawnMethod.Random && s_StartPositions.Count > 0)
             {
                 // try to spawn at a random start location
-                int index = Random.Range(0, s_StartPositions.Count);
+                int index = UnityEngine.Random.Range(0, s_StartPositions.Count);
                 return s_StartPositions[index];
             }
             if (m_PlayerSpawnMethod == PlayerSpawnMethod.RoundRobin && s_StartPositions.Count > 0)

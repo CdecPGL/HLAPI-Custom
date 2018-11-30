@@ -1,9 +1,9 @@
 #if ENABLE_UNET
 using System;
 using System.Collections.Generic;
+using UnityEngine;
 
-namespace UnityEngine.Networking
-{
+namespace PlanetaGameLabo.UNetCustom {
     class ChannelBuffer : IDisposable
     {
         NetworkConnection m_Connection;

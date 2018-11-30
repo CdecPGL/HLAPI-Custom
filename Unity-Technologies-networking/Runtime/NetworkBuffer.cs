@@ -1,9 +1,9 @@
 #if ENABLE_UNET
 using System;
 using System.Runtime.InteropServices;
+using UnityEngine;
 
-namespace UnityEngine.Networking
-{
+namespace PlanetaGameLabo.UNetCustom {
     // A growable buffer class used by NetworkReader and NetworkWriter.
     // this is used instead of MemoryStream and BinaryReader/BinaryWriter to avoid allocations.
     class NetBuffer

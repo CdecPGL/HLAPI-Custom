@@ -3,7 +3,7 @@ using System;
 using System.Text;
 using UnityEngine;
 
-namespace UnityEngine.Networking
+namespace PlanetaGameLabo.UNetCustom
 {
     public class NetworkReader
     {

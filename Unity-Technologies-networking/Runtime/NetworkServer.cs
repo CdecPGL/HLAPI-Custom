@@ -1,19 +1,19 @@
 #if ENABLE_UNET
+using PlanetaGameLabo.UNetCustom.NetworkSystem;
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
+using UnityEngine;
+using UnityEngine.Networking;
 using UnityEngine.Networking.Match;
-using UnityEngine.Networking.NetworkSystem;
 using UnityEngine.Networking.Types;
-using UnityEngineInternal;
 
-namespace UnityEngine.Networking
-{
+namespace PlanetaGameLabo.UNetCustom {
     public sealed class NetworkServer
     {
         static bool s_Active;
         static volatile NetworkServer s_Instance;
-        static object s_Sync = new Object();
+        static object s_Sync = new UnityEngine.Object();
         static bool m_DontListen;
         bool m_LocalClientActive;
 
@@ -1478,7 +1478,7 @@ namespace UnityEngine.Networking
             // when unspawning, dont destroy the server's object
             if (destroyServerObject)
             {
-                Object.Destroy(uv.gameObject);
+                UnityEngine.Object.Destroy(uv.gameObject);
             }
             uv.MarkForReset();
         }

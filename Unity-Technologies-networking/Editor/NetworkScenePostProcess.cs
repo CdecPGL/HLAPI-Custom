@@ -1,13 +1,11 @@
 #if ENABLE_UNET
-using System.Text;
+using PlanetaGameLabo.UNetCustom;
 using System.Collections.Generic;
 using System.Linq;
 using UnityEditor.Callbacks;
 using UnityEngine;
-using UnityEngine.Networking;
 
-namespace UnityEditor
-{
+namespace PlanetaGameLabo.Editor {
     public class NetworkScenePostProcess : MonoBehaviour
     {
         // persistent sceneId assignment to fix readstring bug that occurs when restarting the editor and

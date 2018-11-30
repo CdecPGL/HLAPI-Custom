@@ -1,14 +1,12 @@
 #if ENABLE_UNET
-using System;
+using PlanetaGameLabo.UNetCustom;
+using UnityEditor;
 using UnityEngine;
-using UnityEngine.Networking;
 
-namespace UnityEditor
-{
+namespace PlanetaGameLabo.Editor {
     [CustomEditor(typeof(NetworkIdentity), true)]
     [CanEditMultipleObjects]
-    public class NetworkIdentityEditor : Editor
-    {
+    public class NetworkIdentityEditor : UnityEditor.Editor {
         SerializedProperty m_ServerOnlyProperty;
         SerializedProperty m_LocalPlayerAuthorityProperty;
 

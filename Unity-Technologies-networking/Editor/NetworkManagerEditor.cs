@@ -1,18 +1,17 @@
 #if ENABLE_UNET
+using PlanetaGameLabo.UNetCustom;
 using System;
 using System.IO;
 using System.Reflection;
+using UnityEditor;
 using UnityEditorInternal;
 using UnityEngine;
 using UnityEngine.Networking;
-using UnityObject = UnityEngine.Object;
 
-namespace UnityEditor
-{
+namespace PlanetaGameLabo.Editor {
     [CustomEditor(typeof(NetworkManager), true)]
     [CanEditMultipleObjects]
-    public class NetworkManagerEditor : Editor
-    {
+    public class NetworkManagerEditor : UnityEditor.Editor {
         protected SerializedProperty m_DontDestroyOnLoadProperty;
         protected SerializedProperty m_RunInBackgroundProperty;
         protected SerializedProperty m_ScriptCRCCheckProperty;

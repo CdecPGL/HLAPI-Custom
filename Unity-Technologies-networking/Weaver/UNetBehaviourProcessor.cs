@@ -4,7 +4,7 @@ using System.Collections.Generic;
 using Mono.Cecil;
 using Mono.Cecil.Cil;
 
-namespace Unity.UNetWeaver
+namespace PlanetaGameLabo.UNetWeaver
 {
     class NetworkBehaviourProcessor
     {

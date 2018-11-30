@@ -2,7 +2,7 @@ using System;
 
 #if ENABLE_UNET
 
-namespace UnityEngine.Networking
+namespace PlanetaGameLabo.UNetCustom
 {
     [AttributeUsage(AttributeTargets.Class)]
     public class NetworkSettingsAttribute : Attribute

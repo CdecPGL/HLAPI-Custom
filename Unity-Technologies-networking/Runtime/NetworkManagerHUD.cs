@@ -1,10 +1,9 @@
-using System;
 using System.ComponentModel;
+using UnityEngine;
 
 #if ENABLE_UNET
 
-namespace UnityEngine.Networking
-{
+namespace PlanetaGameLabo.UNetCustom {
     [AddComponentMenu("Network/NetworkManagerHUD")]
     [RequireComponent(typeof(NetworkManager))]
     [EditorBrowsable(EditorBrowsableState.Never)]

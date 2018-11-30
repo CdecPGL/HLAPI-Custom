@@ -1,7 +1,7 @@
 #if ENABLE_UNET
 using System;
 
-namespace UnityEngine.Networking
+namespace PlanetaGameLabo.UNetCustom
 {
     // unrolled for your pleasure.
     [Serializable]

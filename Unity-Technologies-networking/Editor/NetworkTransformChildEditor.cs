@@ -1,16 +1,13 @@
 #if ENABLE_UNET
+using PlanetaGameLabo.UNetCustom;
 using UnityEditor;
 using UnityEngine;
-using System.Collections;
-using UnityEngine.Networking;
 
 
-namespace UnityEditor
-{
+namespace PlanetaGameLabo.Editor {
     [CustomEditor(typeof(NetworkTransformChild), true)]
     [CanEditMultipleObjects]
-    public class NetworkTransformChildEditor : Editor
-    {
+    public class NetworkTransformChildEditor : UnityEditor.Editor {
         private static GUIContent[] axisOptions = {EditorGUIUtility.TrTextContent("None"), new GUIContent("X"), EditorGUIUtility.TrTextContent("Y (Top-Down 2D)"), EditorGUIUtility.TrTextContent("Z (Side-on 2D)"), EditorGUIUtility.TrTextContent("XY (FPS)"), new GUIContent("XZ"), new GUIContent("YZ"), EditorGUIUtility.TrTextContent("XYZ (full 3D)")};
 
         bool m_Initialized = false;

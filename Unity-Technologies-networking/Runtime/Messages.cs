@@ -1,10 +1,9 @@
-using System;
 using System.Collections.Generic;
+using UnityEngine;
 
 #if ENABLE_UNET
 
-namespace UnityEngine.Networking
-{
+namespace PlanetaGameLabo.UNetCustom {
     // This can't be an interface because users don't need to implement the
     // serialization functions, we'll code generate it for them when they omit it.
     public abstract class MessageBase
@@ -17,8 +16,7 @@ namespace UnityEngine.Networking
     }
 }
 
-namespace UnityEngine.Networking.NetworkSystem
-{
+namespace PlanetaGameLabo.UNetCustom.NetworkSystem {
     // ---------- General Typed Messages -------------------
 
     public class StringMessage : MessageBase

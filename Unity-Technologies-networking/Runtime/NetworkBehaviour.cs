@@ -2,9 +2,9 @@
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
+using UnityEngine;
 
-namespace UnityEngine.Networking
-{
+namespace PlanetaGameLabo.UNetCustom {
     [RequireComponent(typeof(NetworkIdentity))]
     [AddComponentMenu("")]
     public class NetworkBehaviour : MonoBehaviour

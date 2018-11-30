@@ -1,9 +1,8 @@
 #if ENABLE_UNET
-using System;
 using System.Collections.Generic;
+using UnityEngine;
 
-namespace UnityEngine.Networking
-{
+namespace PlanetaGameLabo.UNetCustom {
     // This has a list of real connections
     // The local or "fake" connections are kept separate because sometimes you
     // only want to iterate through those, and not all connections.

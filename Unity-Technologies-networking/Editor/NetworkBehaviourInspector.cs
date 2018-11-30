@@ -1,17 +1,16 @@
 #if ENABLE_UNET
+using PlanetaGameLabo.UNetCustom;
 using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Reflection;
+using UnityEditor;
 using UnityEngine;
-using UnityEngine.Networking;
 
-namespace UnityEditor
-{
+namespace PlanetaGameLabo.Editor {
     [CustomEditor(typeof(NetworkBehaviour), true)]
     [CanEditMultipleObjects]
-    public class NetworkBehaviourInspector : Editor
-    {
+    public class NetworkBehaviourInspector : UnityEditor.Editor {
         bool m_Initialized;
         protected List<string> m_SyncVarNames = new List<string>();
         Type m_ScriptClass;

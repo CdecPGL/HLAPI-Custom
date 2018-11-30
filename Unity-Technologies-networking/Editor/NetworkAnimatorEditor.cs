@@ -1,14 +1,14 @@
 #if ENABLE_UNET
+using PlanetaGameLabo.UNetCustom;
 using System;
+using UnityEditor;
 using UnityEditor.Animations;
 using UnityEngine;
-using UnityEngine.Networking;
 
-namespace UnityEditor
-{
+namespace PlanetaGameLabo.Editor {
     [CustomEditor(typeof(NetworkAnimator), true)]
     [CanEditMultipleObjects]
-    public class NetworkAnimatorEditor : Editor
+    public class NetworkAnimatorEditor : UnityEditor.Editor
     {
         NetworkAnimator m_AnimSync;
         [NonSerialized] bool m_Initialized;

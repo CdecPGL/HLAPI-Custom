@@ -1,9 +1,8 @@
 #if ENABLE_UNET
-using System;
 using System.Collections.Generic;
+using UnityEngine;
 
-namespace UnityEngine.Networking
-{
+namespace PlanetaGameLabo.UNetCustom {
     // This is an internal class to allow the client and server to share scene-related functionality.
     // This code (mostly) used to be in ClientScene.
     internal class NetworkScene
@@ -91,7 +90,7 @@ namespace UnityEngine.Networking
             if (m_LocalObjects.ContainsKey(netId))
             {
                 NetworkIdentity localObject = m_LocalObjects[netId];
-                Object.Destroy(localObject.gameObject);
+                UnityEngine.Object.Destroy(localObject.gameObject);
                 return m_LocalObjects.Remove(netId);
             }
             return false;
@@ -258,7 +257,7 @@ namespace UnityEngine.Networking
                     {
                         if (uv.sceneId.IsEmpty())
                         {
-                            Object.Destroy(uv.gameObject);
+                            UnityEngine.Object.Destroy(uv.gameObject);
                         }
                         else
                         {

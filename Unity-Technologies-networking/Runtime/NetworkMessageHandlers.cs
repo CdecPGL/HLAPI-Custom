@@ -1,9 +1,8 @@
 #if ENABLE_UNET
-using System;
 using System.Collections.Generic;
+using UnityEngine;
 
-namespace UnityEngine.Networking
-{
+namespace PlanetaGameLabo.UNetCustom {
     internal class NetworkMessageHandlers
     {
         Dictionary<short, NetworkMessageDelegate> m_MsgHandlers = new Dictionary<short, NetworkMessageDelegate>();

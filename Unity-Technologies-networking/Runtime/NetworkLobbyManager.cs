@@ -1,13 +1,13 @@
 #if ENABLE_UNET
 
+using PlanetaGameLabo.UNetCustom.NetworkSystem;
 using System;
 using System.Collections.Generic;
 using System.Linq;
-using UnityEngine.Networking.NetworkSystem;
+using UnityEngine;
 using UnityEngine.SceneManagement;
 
-namespace UnityEngine.Networking
-{
+namespace PlanetaGameLabo.UNetCustom {
     [AddComponentMenu("Network/NetworkLobbyManager")]
     public class NetworkLobbyManager : NetworkManager
     {

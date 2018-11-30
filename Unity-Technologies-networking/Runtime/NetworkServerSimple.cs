@@ -1,13 +1,14 @@
 using System;
-using UnityEngine;
 using System.Collections.Generic;
-using UnityEngine.Networking.Types;
 using System.Collections.ObjectModel;
+using UnityEngine;
+using UnityEngine.Networking;
+using UnityEngine.Networking.Types;
+
 
 #if ENABLE_UNET
 
-namespace UnityEngine.Networking
-{
+namespace PlanetaGameLabo.UNetCustom {
     public class NetworkServerSimple
     {
         bool m_Initialized = false;

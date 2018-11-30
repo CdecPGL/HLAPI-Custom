@@ -3,7 +3,7 @@ using System;
 using System.Collections.Generic;
 using UnityEngine;
 
-namespace UnityEngine.Networking
+namespace PlanetaGameLabo.UNetCustom
 {
     [AddComponentMenu("Network/NetworkProximityChecker")]
     [RequireComponent(typeof(NetworkIdentity))]

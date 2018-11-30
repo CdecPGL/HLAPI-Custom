@@ -1,14 +1,14 @@
 #if ENABLE_UNET
 #if ENABLE_UNET_HOST_MIGRATION
 
-using System;
+using PlanetaGameLabo.UNetCustom.NetworkSystem;
 using System.Collections.Generic;
+using UnityEngine;
+using UnityEngine.Networking;
 using UnityEngine.Networking.Match;
-using UnityEngine.Networking.NetworkSystem;
 using UnityEngine.Networking.Types;
 
-namespace UnityEngine.Networking
-{
+namespace PlanetaGameLabo.UNetCustom {
     [AddComponentMenu("Network/NetworkMigrationManager")]
     public class NetworkMigrationManager : MonoBehaviour
     {

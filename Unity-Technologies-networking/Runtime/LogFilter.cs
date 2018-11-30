@@ -1,7 +1,7 @@
 using System;
 
 #if ENABLE_UNET
-namespace UnityEngine.Networking
+namespace PlanetaGameLabo.UNetCustom
 {
     public class LogFilter
     {

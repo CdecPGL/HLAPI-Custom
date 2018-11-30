@@ -1,16 +1,14 @@
 #if ENABLE_UNET
-using System;
+using PlanetaGameLabo.UNetCustom;
 using System.Collections.Generic;
+using UnityEditor;
 using UnityEngine;
-using UnityEngine.Networking;
 using UnityObject = UnityEngine.Object;
 
-namespace UnityEditor
-{
+namespace PlanetaGameLabo.Editor {
     [CustomEditor(typeof(NetworkManagerHUD), true)]
     [CanEditMultipleObjects]
-    public class NetworkManagerHUDEditor : Editor
-    {
+    public class NetworkManagerHUDEditor : UnityEditor.Editor {
         SerializedProperty m_ShowGUIProperty;
         SerializedProperty m_OffsetXProperty;
         SerializedProperty m_OffsetYProperty;

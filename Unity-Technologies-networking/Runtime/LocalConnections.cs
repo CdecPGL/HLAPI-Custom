@@ -1,9 +1,8 @@
-using System;
+using UnityEngine;
 
 #if ENABLE_UNET
 
-namespace UnityEngine.Networking
-{
+namespace PlanetaGameLabo.UNetCustom {
     // a server's connection TO a LocalClient.
     // sending messages on this connection causes the client's
     // handler function to be invoked directly

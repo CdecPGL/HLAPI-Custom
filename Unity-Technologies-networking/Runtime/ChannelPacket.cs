@@ -1,8 +1,9 @@
 #if ENABLE_UNET
 using System;
+using UnityEngine;
+using UnityEngine.Networking;
 
-namespace UnityEngine.Networking
-{
+namespace PlanetaGameLabo.UNetCustom {
     // This is used by the ChannelBuffer when buffering traffic.
     // Unreliable channels have a single ChannelPacket, Reliable channels have single "current" packet and a list of buffered ChannelPackets
     struct ChannelPacket

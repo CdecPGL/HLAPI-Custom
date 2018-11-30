@@ -2,9 +2,9 @@
 using System;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Networking;
 
-namespace UnityEngine.Networking
-{
+namespace PlanetaGameLabo.UNetCustom {
     public struct NetworkBroadcastResult
     {
         public string serverAddress;

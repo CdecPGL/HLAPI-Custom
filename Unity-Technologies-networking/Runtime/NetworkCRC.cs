@@ -1,11 +1,10 @@
 #if ENABLE_UNET
-using System;
+using PlanetaGameLabo.UNetCustom.NetworkSystem;
 using System.Collections.Generic;
 using System.Reflection;
-using UnityEngine.Networking.NetworkSystem;
+using UnityEngine;
 
-namespace UnityEngine.Networking
-{
+namespace PlanetaGameLabo.UNetCustom {
     public class NetworkCRC
     {
         internal static NetworkCRC s_Singleton;

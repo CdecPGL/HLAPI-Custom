@@ -1,11 +1,10 @@
 #if ENABLE_UNET
-using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.ComponentModel;
+using UnityEngine;
 
-namespace UnityEngine.Networking
-{
+namespace PlanetaGameLabo.UNetCustom {
     public sealed class SyncListString : SyncList<string>
     {
         protected override void SerializeItem(NetworkWriter writer, string item)

@@ -1,10 +1,7 @@
 #if ENABLE_UNET
 using UnityEditor;
-using UnityEditor.Connect;
-using UnityEditor.Web;
 
-namespace UnityEditor
-{
+namespace PlanetaGameLabo.Editor {
     [InitializeOnLoad]
     internal class NetworkServiceInitialize
     {

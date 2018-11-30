@@ -2,7 +2,7 @@ using System;
 using System.Linq;
 using Mono.Cecil;
 
-namespace Unity.UNetWeaver
+namespace PlanetaGameLabo.UNetWeaver
 {
     class MonoBehaviourProcessor
     {

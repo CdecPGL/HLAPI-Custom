@@ -1,14 +1,12 @@
 #if ENABLE_UNET
-using System;
+using PlanetaGameLabo.UNetCustom;
+using UnityEditor;
 using UnityEngine;
-using UnityEngine.Networking;
 
-namespace UnityEditor
-{
+namespace PlanetaGameLabo.Editor {
     [CustomEditor(typeof(NetworkDiscovery), true)]
     [CanEditMultipleObjects]
-    public class NetworkDiscoveryEditor : Editor
-    {
+    public class NetworkDiscoveryEditor : UnityEditor.Editor {
         bool m_Initialized;
         NetworkDiscovery m_Discovery;
 

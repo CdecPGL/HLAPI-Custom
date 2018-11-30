@@ -1,12 +1,11 @@
 #if ENABLE_UNET
-using System;
+using PlanetaGameLabo.UNetCustom;
 using System.Collections.Generic;
+using UnityEditor;
 using UnityEngine;
-using UnityEngine.Networking;
 using UnityObject = UnityEngine.Object;
 
-namespace UnityEditor.Networking
-{
+namespace PlanetaGameLabo.Editor.Networking {
     [CustomPreview(typeof(GameObject))]
     class NetworkInformationPreview : ObjectPreview
     {

@@ -1,8 +1,8 @@
 #if ENABLE_UNET
 using System.Collections.Generic;
+using UnityEngine;
 
-namespace UnityEngine.Networking
-{
+namespace PlanetaGameLabo.UNetCustom {
     sealed class LocalClient : NetworkClient
     {
         const int k_InitialFreeMessagePoolSize = 64;

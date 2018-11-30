@@ -1,13 +1,14 @@
 #if ENABLE_UNET
+using PlanetaGameLabo.UNetCustom.NetworkSystem;
 using System;
 using System.Collections.Generic;
 using System.Net;
 using System.Net.Sockets;
+using UnityEngine;
+using UnityEngine.Networking;
 using UnityEngine.Networking.Match;
-using UnityEngine.Networking.NetworkSystem;
 
-namespace UnityEngine.Networking
-{
+namespace PlanetaGameLabo.UNetCustom {
     public class NetworkClient
     {
         Type m_NetworkConnectionClass = typeof(NetworkConnection);
