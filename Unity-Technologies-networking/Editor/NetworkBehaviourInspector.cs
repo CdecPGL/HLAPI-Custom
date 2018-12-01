@@ -31,9 +31,9 @@ namespace PlanetaGameLabo.Editor {
             m_Initialized = true;
             m_ScriptClass = script.GetClass();
 
-            m_SyncVarIndicatorContent = EditorGUIUtility.TrTextContent("SyncVar", "This variable has been marked with the [SyncVar] attribute.");
-            m_NetworkChannelLabel = EditorGUIUtility.TrTextContent("Network Channel", "QoS channel used for updates. Use the [NetworkSettings] class attribute to change this.");
-            m_NetworkSendIntervalLabel = EditorGUIUtility.TrTextContent("Network Send Interval", "Maximum update rate in seconds. Use the [NetworkSettings] class attribute to change this, or implement GetNetworkSendInterval");
+            m_SyncVarIndicatorContent = UnityInternal.EditorGUILayoutInternalTrTextContent("SyncVar", "This variable has been marked with the [SyncVar] attribute.");
+            m_NetworkChannelLabel = UnityInternal.EditorGUILayoutInternalTrTextContent("Network Channel", "QoS channel used for updates. Use the [NetworkSettings] class attribute to change this.");
+            m_NetworkSendIntervalLabel = UnityInternal.EditorGUILayoutInternalTrTextContent("Network Send Interval", "Maximum update rate in seconds. Use the [NetworkSettings] class attribute to change this, or implement GetNetworkSendInterval");
 
             foreach (var field in m_ScriptClass.GetFields(BindingFlags.Public | BindingFlags.Instance))
             {

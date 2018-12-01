@@ -25,7 +25,9 @@ namespace PlanetaGameLabo.Editor {
             m_AnimSync = target as NetworkAnimator;
 
             m_AnimatorProperty = serializedObject.FindProperty("m_Animator");
-            m_AnimatorLabel = EditorGUIUtility.TrTextContent("Animator", "The Animator component to synchronize.");
+
+            m_AnimatorLabel = UnityInternal.EditorGUILayoutInternalTrTextContent("Animator", "The Animator component to synchronize.");
+
         }
 
         public override void OnInspectorGUI()

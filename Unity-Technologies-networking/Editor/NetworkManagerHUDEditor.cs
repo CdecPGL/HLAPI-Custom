@@ -64,16 +64,16 @@ namespace PlanetaGameLabo.Editor {
             m_OffsetXProperty = serializedObject.FindProperty("offsetX");
             m_OffsetYProperty = serializedObject.FindProperty("offsetY");
 
-            m_ShowServerLabel = EditorGUIUtility.TrTextContent("Server Info", "Details of internal server state");
-            m_ShowServerConnectionsLabel = EditorGUIUtility.TrTextContent("Server Connections", "List of local and remote network connections to the server");
-            m_ShowServerObjectsLabel = EditorGUIUtility.TrTextContent("Server Objects", "Networked objects spawned by the server");
-            m_ShowClientLabel = EditorGUIUtility.TrTextContent("Client Info", "Details of internal client state");
-            m_ShowClientObjectsLabel = EditorGUIUtility.TrTextContent("Client Objects", "Networked objects created on the client");
-            m_ShowMatchMakerLabel = EditorGUIUtility.TrTextContent("MatchMaker Info", "Details about the matchmaker state");
-            m_ShowControlsLabel = EditorGUIUtility.TrTextContent("Runtime Controls", "Buttons for controlling network state at runtime");
-            m_ShowRuntimeGuiLabel = EditorGUIUtility.TrTextContent("Show Runtime GUI", "Show the default network control GUI when the game is running");
-            m_OffsetXLabel = EditorGUIUtility.TrTextContent("GUI Horizontal Offset", "Horizontal offset of runtime GUI");
-            m_OffsetYLabel = EditorGUIUtility.TrTextContent("GUI Vertical Offset", "Vertical offset of runtime GUI");
+            m_ShowServerLabel = UnityInternal.EditorGUILayoutInternalTrTextContent("Server Info", "Details of internal server state");
+            m_ShowServerConnectionsLabel = UnityInternal.EditorGUILayoutInternalTrTextContent("Server Connections", "List of local and remote network connections to the server");
+            m_ShowServerObjectsLabel = UnityInternal.EditorGUILayoutInternalTrTextContent("Server Objects", "Networked objects spawned by the server");
+            m_ShowClientLabel = UnityInternal.EditorGUILayoutInternalTrTextContent("Client Info", "Details of internal client state");
+            m_ShowClientObjectsLabel = UnityInternal.EditorGUILayoutInternalTrTextContent("Client Objects", "Networked objects created on the client");
+            m_ShowMatchMakerLabel = UnityInternal.EditorGUILayoutInternalTrTextContent("MatchMaker Info", "Details about the matchmaker state");
+            m_ShowControlsLabel = UnityInternal.EditorGUILayoutInternalTrTextContent("Runtime Controls", "Buttons for controlling network state at runtime");
+            m_ShowRuntimeGuiLabel = UnityInternal.EditorGUILayoutInternalTrTextContent("Show Runtime GUI", "Show the default network control GUI when the game is running");
+            m_OffsetXLabel = UnityInternal.EditorGUILayoutInternalTrTextContent("GUI Horizontal Offset", "Horizontal offset of runtime GUI");
+            m_OffsetYLabel = UnityInternal.EditorGUILayoutInternalTrTextContent("GUI Vertical Offset", "Vertical offset of runtime GUI");
         }
 
         List<bool> m_ShowDetailForConnections;

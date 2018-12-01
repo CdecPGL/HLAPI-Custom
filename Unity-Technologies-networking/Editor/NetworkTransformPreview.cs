@@ -24,7 +24,7 @@ namespace PlanetaGameLabo.Editor.Networking {
         {
             if (m_Title == null)
             {
-                m_Title = EditorGUIUtility.TrTextContent("Network Transform");
+                m_Title = UnityInternal.EditorGUILayoutInternalTrTextContent("Network Transform");
             }
             return m_Title;
         }

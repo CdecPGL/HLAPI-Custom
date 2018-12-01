@@ -45,11 +45,11 @@ namespace PlanetaGameLabo.Editor {
             m_OffsetXProperty = serializedObject.FindProperty("m_OffsetX");
             m_OffsetYProperty = serializedObject.FindProperty("m_OffsetY");
 
-            m_ShowGUILabel = EditorGUIUtility.TrTextContent("Show GUI", "Enable to display the default UI.");
-            m_OffsetXLabel = EditorGUIUtility.TrTextContent("Offset X", "The horizonal offset of the GUI.");
-            m_OffsetYLabel = EditorGUIUtility.TrTextContent("Offset Y", "The vertical offset of the GUI.");
+            m_ShowGUILabel = UnityInternal.EditorGUILayoutInternalTrTextContent("Show GUI", "Enable to display the default UI.");
+            m_OffsetXLabel = UnityInternal.EditorGUILayoutInternalTrTextContent("Offset X", "The horizonal offset of the GUI.");
+            m_OffsetYLabel = UnityInternal.EditorGUILayoutInternalTrTextContent("Offset Y", "The vertical offset of the GUI.");
 
-            m_HostMigrationLabel = EditorGUIUtility.TrTextContent("Use Host Migration", "Enable to use host migration.");
+            m_HostMigrationLabel = UnityInternal.EditorGUILayoutInternalTrTextContent("Use Host Migration", "Enable to use host migration.");
         }
 
         public override void OnInspectorGUI()
