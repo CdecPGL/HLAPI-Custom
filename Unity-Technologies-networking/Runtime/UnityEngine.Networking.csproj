@@ -8,7 +8,7 @@
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>PlanetaGameLabo.UNetCustom</RootNamespace>
-    <AssemblyName>UnityEngine.Networking</AssemblyName>
+    <AssemblyName>PlanetaGameLabo.UNetCustom</AssemblyName>
     <TargetFrameworkVersion>v3.5</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <ProductVersion>12.0.0</ProductVersion>
@@ -80,6 +80,7 @@
     <Compile Include="NetworkWriter.cs" />
     <Compile Include="NetworkMigrationManager.cs" />
     <Compile Include="NetworkServerSimple.cs" />
+    <Compile Include="UnityInternalcs.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Target Name="AfterBuild">

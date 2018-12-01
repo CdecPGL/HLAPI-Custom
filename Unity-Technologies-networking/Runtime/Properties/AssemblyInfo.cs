@@ -6,12 +6,12 @@ using System.Runtime.InteropServices;
 // General Information about an assembly is controlled through the following
 // set of attributes. Change these attribute values to modify the information
 // associated with an assembly.
-[assembly: AssemblyTitle("UnityEngine.Networking")]
-[assembly: AssemblyDescription("Networking High Level API")]
+[assembly: AssemblyTitle("PlanetaGameLabo.UNetCustom")]
+[assembly: AssemblyDescription("Networking API based on UNet HLAPI")]
 [assembly: AssemblyConfiguration("")]
-[assembly: AssemblyCompany("Unity Technologies")]
-[assembly: AssemblyProduct("UnityEngine.Networking")]
-[assembly: AssemblyCopyright("Copyright © 2014")]
+[assembly: AssemblyCompany("PlanetaGameLabo")]
+[assembly: AssemblyProduct("PlanetaGameLabo.UNetCustom")]
+[assembly: AssemblyCopyright("Copyright © 2018")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
 [assembly: InternalsVisibleTo("PlanetaGameLabo.Editor")]

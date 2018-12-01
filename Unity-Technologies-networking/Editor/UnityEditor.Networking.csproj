@@ -57,7 +57,7 @@
     <Compile Include="NetworkScenePostProcess.cs" />
     <Compile Include="NetworkIdentityEditor.cs" />
     <Compile Include="NetworkMigrationManagerEditor.cs" />
-    <Compile Include="Utility.cs" />
+    <Compile Include="UnityInternal.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Runtime\UnityEngine.Networking.csproj">

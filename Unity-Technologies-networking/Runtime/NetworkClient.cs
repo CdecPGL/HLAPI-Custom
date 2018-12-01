@@ -336,7 +336,7 @@ namespace PlanetaGameLabo.UNetCustom {
 
         public void Connect(EndPoint secureTunnelEndPoint)
         {
-            bool usePlatformSpecificProtocols = NetworkTransport.DoesEndPointUsePlatformProtocols(secureTunnelEndPoint);
+            bool usePlatformSpecificProtocols = UnityInternal.NetworkTransportInternalDoesEndPointUsePlatformProtocols(secureTunnelEndPoint);
             PrepareForConnect(usePlatformSpecificProtocols);
 
             if (LogFilter.logDebug) { Debug.Log("Client Connect to remoteSockAddr"); }
