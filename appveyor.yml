@@ -1,24 +1,24 @@
 version: '{branch}-{build}'
 
 before_build:
-  - nuget restore Unity-Technologies-networking/Networking.sln
+  - nuget restore UNetCustom/UNetCustom.sln
 
 build:
-  project: Unity-Technologies-networking/Networking.sln
+  project: UNetCustom/UNetCustom.sln
   verbosity: minimal
   
 artifacts:
-  - path: Unity-Technologies-networking/Output
-    name: HLAPI_Custom_2018.1
+  - path: UNetCustom/Output
+    name: UNet_Custom_2018
 
 image: Visual Studio 2017
 
 deploy:
-  description: 'HLAPI custom 2018.1'
+  description: 'UNet Custom 2018'
   provider: GitHub
   auth_token:
     secure: gY+wG+uwmwB9D1OdWPv1n7E6v9tctDlsl9s6lh77TPEbAvbIZvRlVg+h64vUjdbq
-  artifact: Unity-Technologies-networking\HLAPI_Custom_2018.1.zip
+  artifact: UNetCustom\UNet_Custom_2018.zip
   draft: false
   prerelease: false
   on:
