@@ -24,15 +24,15 @@ namespace PlanetaGameLabo.Editor.Networking {
             base.Initialize(targets);
             GetNetworkInformation(target as NetworkManager);
 
-            m_ShowServerMessagesLabel = UnityInternal.EditorGUILayoutInternalTrTextContent("Server Message Handlers:", "Registered network message handler functions");
-            m_ShowClientMessagesLabel = UnityInternal.EditorGUILayoutInternalTrTextContent("Client Message Handlers:", "Registered network message handler functions");
+            m_ShowServerMessagesLabel = new GUIContent("Server Message Handlers:", "Registered network message handler functions");
+            m_ShowClientMessagesLabel = new GUIContent("Client Message Handlers:", "Registered network message handler functions");
         }
 
         public override GUIContent GetPreviewTitle()
         {
             if (m_Title == null)
             {
-                m_Title = UnityInternal.EditorGUILayoutInternalTrTextContent("NetworkManager Message Handlers");
+                m_Title = new GUIContent("NetworkManager Message Handlers");
             }
             return m_Title;
         }

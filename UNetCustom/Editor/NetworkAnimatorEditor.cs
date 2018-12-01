@@ -26,7 +26,7 @@ namespace PlanetaGameLabo.Editor {
 
             m_AnimatorProperty = serializedObject.FindProperty("m_Animator");
 
-            m_AnimatorLabel = UnityInternal.EditorGUILayoutInternalTrTextContent("Animator", "The Animator component to synchronize.");
+            m_AnimatorLabel = new GUIContent("Animator", "The Animator component to synchronize.");
 
         }
 

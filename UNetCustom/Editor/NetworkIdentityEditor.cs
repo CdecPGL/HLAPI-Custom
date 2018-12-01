@@ -30,9 +30,9 @@ namespace PlanetaGameLabo.Editor {
             m_ServerOnlyProperty = serializedObject.FindProperty("m_ServerOnly");
             m_LocalPlayerAuthorityProperty = serializedObject.FindProperty("m_LocalPlayerAuthority");
 
-            m_ServerOnlyLabel = UnityInternal.EditorGUILayoutInternalTrTextContent("Server Only", "True if the object should only exist on the server.");
-            m_LocalPlayerAuthorityLabel = UnityInternal.EditorGUILayoutInternalTrTextContent("Local Player Authority", "True if this object will be controlled by a player on a client.");
-            m_SpawnLabel = UnityInternal.EditorGUILayoutInternalTrTextContent("Spawn Object", "This causes an unspawned server object to be spawned on clients");
+            m_ServerOnlyLabel = new GUIContent("Server Only", "True if the object should only exist on the server.");
+            m_LocalPlayerAuthorityLabel = new GUIContent("Local Player Authority", "True if this object will be controlled by a player on a client.");
+            m_SpawnLabel = new GUIContent("Spawn Object", "This causes an unspawned server object to be spawned on clients");
         }
 
         public override void OnInspectorGUI()

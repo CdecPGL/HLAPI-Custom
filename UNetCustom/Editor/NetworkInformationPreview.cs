@@ -77,7 +77,7 @@ namespace PlanetaGameLabo.Editor.Networking {
         {
             if (m_Title == null)
             {
-                m_Title = UnityInternal.EditorGUILayoutInternalTrTextContent("Network Information");
+                m_Title = new GUIContent("Network Information");
             }
             return m_Title;
         }
@@ -130,7 +130,7 @@ namespace PlanetaGameLabo.Editor.Networking {
                 Vector2 maxBehaviourLabelSize = GetMaxBehaviourLabelSize();
                 Rect behaviourRect = new Rect(initialX, labelRect.y + 10, maxBehaviourLabelSize.x, maxBehaviourLabelSize.y);
 
-                GUI.Label(behaviourRect, UnityInternal.EditorGUILayoutInternalTrTextContent("Network Behaviours"), m_Styles.labelStyle);
+                GUI.Label(behaviourRect, new GUIContent("Network Behaviours"), m_Styles.labelStyle);
                 behaviourRect.x += 20; // indent names
                 behaviourRect.y += behaviourRect.height;
 
@@ -157,7 +157,7 @@ namespace PlanetaGameLabo.Editor.Networking {
                 {
                     Rect observerRect = new Rect(initialX, lastY + 10, 200, 20);
 
-                    GUI.Label(observerRect, UnityInternal.EditorGUILayoutInternalTrTextContent("Network observers"), m_Styles.labelStyle);
+                    GUI.Label(observerRect, new GUIContent("Network observers"), m_Styles.labelStyle);
                     observerRect.x += 20; // indent names
                     observerRect.y += observerRect.height;
 
@@ -172,7 +172,7 @@ namespace PlanetaGameLabo.Editor.Networking {
                 if (m_Identity.clientAuthorityOwner != null)
                 {
                     Rect ownerRect = new Rect(initialX, lastY + 10, 400, 20);
-                    GUI.Label(ownerRect, UnityInternal.EditorGUILayoutInternalTrTextContent("Client Authority: " + m_Identity.clientAuthorityOwner), m_Styles.labelStyle);
+                    GUI.Label(ownerRect, new GUIContent("Client Authority: " + m_Identity.clientAuthorityOwner), m_Styles.labelStyle);
                 }
             }
         }

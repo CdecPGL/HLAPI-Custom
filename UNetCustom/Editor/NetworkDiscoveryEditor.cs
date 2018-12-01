@@ -60,16 +60,16 @@ namespace PlanetaGameLabo.Editor {
             m_OffsetXProperty = serializedObject.FindProperty("m_OffsetX");
             m_OffsetYProperty = serializedObject.FindProperty("m_OffsetY");
 
-            m_BroadcastPortLabel = UnityInternal.EditorGUILayoutInternalTrTextContent("Broadcast Port", "The network port to broadcast to, and listen on.");
-            m_BroadcastKeyLabel = UnityInternal.EditorGUILayoutInternalTrTextContent("Broadcast Key", "The key to broadcast. This key typically identifies the application.");
-            m_BroadcastVersionLabel = UnityInternal.EditorGUILayoutInternalTrTextContent("Broadcast Version", "The version of the application to broadcast. This is used to match versions of the same application.");
-            m_BroadcastSubVersionLabel = UnityInternal.EditorGUILayoutInternalTrTextContent("Broadcast SubVersion", "The sub-version of the application to broadcast.");
-            m_BroadcastIntervalLabel = UnityInternal.EditorGUILayoutInternalTrTextContent("Broadcast Interval", "How often in milliseconds to broadcast when running as a server.");
-            m_UseNetworkManagerLabel = UnityInternal.EditorGUILayoutInternalTrTextContent("Use NetworkManager", "Broadcast information from the NetworkManager, and auto-join matching games using the NetworkManager.");
-            m_BroadcastDataLabel = UnityInternal.EditorGUILayoutInternalTrTextContent("Broadcast Data", "The data to broadcast when not using the NetworkManager");
-            m_ShowGUILabel = UnityInternal.EditorGUILayoutInternalTrTextContent("Show GUI", "Enable to draw the default broadcast control UI.");
-            m_OffsetXLabel = UnityInternal.EditorGUILayoutInternalTrTextContent("Offset X", "The horizonal offset of the GUI.");
-            m_OffsetYLabel = UnityInternal.EditorGUILayoutInternalTrTextContent("Offset Y", "The vertical offset of the GUI.");
+            m_BroadcastPortLabel = new GUIContent("Broadcast Port", "The network port to broadcast to, and listen on.");
+            m_BroadcastKeyLabel = new GUIContent("Broadcast Key", "The key to broadcast. This key typically identifies the application.");
+            m_BroadcastVersionLabel = new GUIContent("Broadcast Version", "The version of the application to broadcast. This is used to match versions of the same application.");
+            m_BroadcastSubVersionLabel = new GUIContent("Broadcast SubVersion", "The sub-version of the application to broadcast.");
+            m_BroadcastIntervalLabel = new GUIContent("Broadcast Interval", "How often in milliseconds to broadcast when running as a server.");
+            m_UseNetworkManagerLabel = new GUIContent("Use NetworkManager", "Broadcast information from the NetworkManager, and auto-join matching games using the NetworkManager.");
+            m_BroadcastDataLabel = new GUIContent("Broadcast Data", "The data to broadcast when not using the NetworkManager");
+            m_ShowGUILabel = new GUIContent("Show GUI", "Enable to draw the default broadcast control UI.");
+            m_OffsetXLabel = new GUIContent("Offset X", "The horizonal offset of the GUI.");
+            m_OffsetYLabel = new GUIContent("Offset Y", "The vertical offset of the GUI.");
         }
 
         public override void OnInspectorGUI()

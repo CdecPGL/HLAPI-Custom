@@ -8,7 +8,7 @@ namespace PlanetaGameLabo.Editor {
     [CustomEditor(typeof(NetworkTransformChild), true)]
     [CanEditMultipleObjects]
     public class NetworkTransformChildEditor : UnityEditor.Editor {
-        private static GUIContent[] axisOptions = {UnityInternal.EditorGUILayoutInternalTrTextContent("None"), new GUIContent("X"), UnityInternal.EditorGUILayoutInternalTrTextContent("Y (Top-Down 2D)"), UnityInternal.EditorGUILayoutInternalTrTextContent("Z (Side-on 2D)"), UnityInternal.EditorGUILayoutInternalTrTextContent("XY (FPS)"), new GUIContent("XZ"), new GUIContent("YZ"), UnityInternal.EditorGUILayoutInternalTrTextContent("XYZ (full 3D)")};
+        private static GUIContent[] axisOptions = {new GUIContent("None"), new GUIContent("X"), new GUIContent("Y (Top-Down 2D)"), new GUIContent("Z (Side-on 2D)"), new GUIContent("XY (FPS)"), new GUIContent("XZ"), new GUIContent("YZ"), new GUIContent("XYZ (full 3D)")};
 
         bool m_Initialized = false;
         NetworkTransformChild sync;
@@ -54,15 +54,15 @@ namespace PlanetaGameLabo.Editor {
 
             m_NetworkSendIntervalProperty = serializedObject.FindProperty("m_SendInterval");
 
-            m_TargetLabel = UnityInternal.EditorGUILayoutInternalTrTextContent("Target", "The child transform to be synchronized.");
-            m_NetworkSendIntervalLabel = UnityInternal.EditorGUILayoutInternalTrTextContent("Network Send Rate", "Number of network updates per second.");
+            m_TargetLabel = new GUIContent("Target", "The child transform to be synchronized.");
+            m_NetworkSendIntervalLabel = new GUIContent("Network Send Rate", "Number of network updates per second.");
             EditorGUI.indentLevel += 1;
-            m_MovementThresholdLabel = UnityInternal.EditorGUILayoutInternalTrTextContent("Movement Threshold", "The distance that this object can move without sending a movement synchronization update.");
+            m_MovementThresholdLabel = new GUIContent("Movement Threshold", "The distance that this object can move without sending a movement synchronization update.");
 
-            m_InterpolateRotationLabel = UnityInternal.EditorGUILayoutInternalTrTextContent("Interpolate Rotation Factor", "The larger this number is, the faster the object will interpolate to the target facing direction.");
-            m_InterpolateMovementLabel = UnityInternal.EditorGUILayoutInternalTrTextContent("Interpolate Movement Factor", "The larger this number is, the faster the object will interpolate to the target position.");
-            m_RotationSyncCompressionLabel = UnityInternal.EditorGUILayoutInternalTrTextContent("Compress Rotation", "How much to compress rotation sync updates.\n\nChoose None for no compression.\n\nChoose Low for a low amount of compression that preserves accuracy.\n\nChoose High for a high amount of compression that sacrifices accuracy.");
-            m_RotationAxisLabel = UnityInternal.EditorGUILayoutInternalTrTextContent("Rotation Axis", "Which axis to use for rotation.");
+            m_InterpolateRotationLabel = new GUIContent("Interpolate Rotation Factor", "The larger this number is, the faster the object will interpolate to the target facing direction.");
+            m_InterpolateMovementLabel = new GUIContent("Interpolate Movement Factor", "The larger this number is, the faster the object will interpolate to the target position.");
+            m_RotationSyncCompressionLabel = new GUIContent("Compress Rotation", "How much to compress rotation sync updates.\n\nChoose None for no compression.\n\nChoose Low for a low amount of compression that preserves accuracy.\n\nChoose High for a high amount of compression that sacrifices accuracy.");
+            m_RotationAxisLabel = new GUIContent("Rotation Axis", "Which axis to use for rotation.");
 
             EditorGUI.indentLevel -= 1;
         }
