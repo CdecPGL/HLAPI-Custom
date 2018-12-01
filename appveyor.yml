@@ -3,9 +3,13 @@ version: '{branch}-{build}'
 before_build:
   - nuget restore UNetCustom/UNetCustom.sln
 
-build:
-  project: UNetCustom/UNetCustom.sln
-  verbosity: minimal
+# build:
+#   project: UNetCustom/UNetCustom.sln
+#   verbosity: minimal
+
+build_script:
+  - msbuild UNetCustom/UNetCustom.sln /logger:"C:\Program Files\AppVeyor\BuildAgent\Appveyor.MSBuildLogger.dll" /p:Configuration="Debug-Editor" /ConsoleLoggerParameters:Verbosity=quiet
+  - msbuild UNetCustom/UNetCustom.sln /logger:"C:\Program Files\AppVeyor\BuildAgent\Appveyor.MSBuildLogger.dll" /p:Configuration="Debug" /ConsoleLoggerParameters:Verbosity=quiet
   
 artifacts:
   - path: UNetCustom/Output
