@@ -526,9 +526,9 @@ namespace PlanetaGameLabo.UNetCustom {
             if (LogFilter.logDebug) { Debug.Log("Client spawn handler instantiating [netId:" + s_ObjectSpawnMessage.netId + " asset ID:" + s_ObjectSpawnMessage.assetId + " pos:" + s_ObjectSpawnMessage.position + "]"); }
 
 #if UNITY_EDITOR
-            UnityEditor.NetworkDetailStats.IncrementStat(
-                UnityEditor.NetworkDetailStats.NetworkDirection.Incoming,
-                MsgType.ObjectSpawn, GetStringForAssetId(s_ObjectSpawnMessage.assetId), 1);
+            //UnityEditor.NetworkDetailStats.IncrementStat(
+            //    UnityEditor.NetworkDetailStats.NetworkDirection.Incoming,
+            //    MsgType.ObjectSpawn, GetStringForAssetId(s_ObjectSpawnMessage.assetId), 1);
 #endif
 
             NetworkIdentity localNetworkIdentity;
@@ -592,9 +592,9 @@ namespace PlanetaGameLabo.UNetCustom {
 
 
 #if UNITY_EDITOR
-            UnityEditor.NetworkDetailStats.IncrementStat(
-                UnityEditor.NetworkDetailStats.NetworkDirection.Incoming,
-                MsgType.ObjectSpawnScene, "sceneId", 1);
+            //UnityEditor.NetworkDetailStats.IncrementStat(
+            //    UnityEditor.NetworkDetailStats.NetworkDirection.Incoming,
+            //    MsgType.ObjectSpawnScene, "sceneId", 1);
 #endif
 
             NetworkIdentity localNetworkIdentity;
@@ -656,9 +656,9 @@ namespace PlanetaGameLabo.UNetCustom {
             if (s_NetworkScene.GetNetworkIdentity(s_ObjectDestroyMessage.netId, out localObject))
             {
 #if UNITY_EDITOR
-                UnityEditor.NetworkDetailStats.IncrementStat(
-                    UnityEditor.NetworkDetailStats.NetworkDirection.Incoming,
-                    MsgType.ObjectDestroy, GetStringForAssetId(localObject.assetId), 1);
+                //UnityEditor.NetworkDetailStats.IncrementStat(
+                //    UnityEditor.NetworkDetailStats.NetworkDirection.Incoming,
+                //    MsgType.ObjectDestroy, GetStringForAssetId(localObject.assetId), 1);
 #endif
                 localObject.OnNetworkDestroy();
 
@@ -782,9 +782,9 @@ namespace PlanetaGameLabo.UNetCustom {
             }
 
 #if UNITY_EDITOR
-            UnityEditor.NetworkDetailStats.IncrementStat(
-                UnityEditor.NetworkDetailStats.NetworkDirection.Outgoing,
-                MsgType.SyncEvent, NetworkBehaviour.GetCmdHashHandlerName(cmdHash), 1);
+            //UnityEditor.NetworkDetailStats.IncrementStat(
+            //    UnityEditor.NetworkDetailStats.NetworkDirection.Outgoing,
+            //    MsgType.SyncEvent, NetworkBehaviour.GetCmdHashHandlerName(cmdHash), 1);
 #endif
         }
 
@@ -806,9 +806,9 @@ namespace PlanetaGameLabo.UNetCustom {
             }
 
 #if UNITY_EDITOR
-            UnityEditor.NetworkDetailStats.IncrementStat(
-                UnityEditor.NetworkDetailStats.NetworkDirection.Outgoing,
-                MsgType.SyncList, NetworkBehaviour.GetCmdHashHandlerName(cmdHash), 1);
+            //UnityEditor.NetworkDetailStats.IncrementStat(
+            //    UnityEditor.NetworkDetailStats.NetworkDirection.Outgoing,
+            //    MsgType.SyncList, NetworkBehaviour.GetCmdHashHandlerName(cmdHash), 1);
 #endif
         }
 

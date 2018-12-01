@@ -547,9 +547,9 @@ namespace PlanetaGameLabo.UNetCustom {
                     return false;
                 }
 #if UNITY_EDITOR
-                UnityEditor.NetworkDetailStats.IncrementStat(
-                    UnityEditor.NetworkDetailStats.NetworkDirection.Outgoing,
-                    MsgType.UserMessage, msgType.ToString() + ":" + msg.GetType().Name, 1);
+                //UnityEditor.NetworkDetailStats.IncrementStat(
+                //    UnityEditor.NetworkDetailStats.NetworkDirection.Outgoing,
+                //    MsgType.UserMessage, msgType.ToString() + ":" + msg.GetType().Name, 1);
 #endif
                 return m_Connection.Send(msgType, msg);
             }
@@ -597,9 +597,9 @@ namespace PlanetaGameLabo.UNetCustom {
                     return false;
                 }
 #if UNITY_EDITOR
-                UnityEditor.NetworkDetailStats.IncrementStat(
-                    UnityEditor.NetworkDetailStats.NetworkDirection.Outgoing,
-                    MsgType.UserMessage, msgType.ToString() + ":" + msg.GetType().Name, 1);
+                //UnityEditor.NetworkDetailStats.IncrementStat(
+                //    UnityEditor.NetworkDetailStats.NetworkDirection.Outgoing,
+                //    MsgType.UserMessage, msgType.ToString() + ":" + msg.GetType().Name, 1);
 #endif
                 return m_Connection.SendUnreliable(msgType, msg);
             }
@@ -610,9 +610,9 @@ namespace PlanetaGameLabo.UNetCustom {
         public bool SendByChannel(short msgType, MessageBase msg, int channelId)
         {
 #if UNITY_EDITOR
-            UnityEditor.NetworkDetailStats.IncrementStat(
-                UnityEditor.NetworkDetailStats.NetworkDirection.Outgoing,
-                MsgType.UserMessage, msgType.ToString() + ":" + msg.GetType().Name, 1);
+            //UnityEditor.NetworkDetailStats.IncrementStat(
+            //    UnityEditor.NetworkDetailStats.NetworkDirection.Outgoing,
+            //    MsgType.UserMessage, msgType.ToString() + ":" + msg.GetType().Name, 1);
 #endif
             if (m_Connection != null)
             {
@@ -733,9 +733,9 @@ namespace PlanetaGameLabo.UNetCustom {
                         }
 
 #if UNITY_EDITOR
-                        UnityEditor.NetworkDetailStats.IncrementStat(
-                        UnityEditor.NetworkDetailStats.NetworkDirection.Incoming,
-                        MsgType.LLAPIMsg, "msg", 1);
+                        //UnityEditor.NetworkDetailStats.IncrementStat(
+                        //UnityEditor.NetworkDetailStats.NetworkDirection.Incoming,
+                        //MsgType.LLAPIMsg, "msg", 1);
 #endif
 
                         m_MsgReader.SeekZero();
@@ -968,7 +968,7 @@ namespace PlanetaGameLabo.UNetCustom {
             s_IsActive = false;
             ClientScene.Shutdown();
 #if UNITY_EDITOR
-            UnityEditor.NetworkDetailStats.ResetAll();
+            //UnityEditor.NetworkDetailStats.ResetAll();
 #endif
         }
 

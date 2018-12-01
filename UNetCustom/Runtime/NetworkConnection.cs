@@ -487,15 +487,15 @@ namespace PlanetaGameLabo.UNetCustom {
                     lastMessageTime = Time.time;
 
 #if UNITY_EDITOR
-                    UnityEditor.NetworkDetailStats.IncrementStat(
-                        UnityEditor.NetworkDetailStats.NetworkDirection.Incoming,
-                        MsgType.HLAPIMsg, "msg", 1);
+                    //UnityEditor.NetworkDetailStats.IncrementStat(
+                    //    UnityEditor.NetworkDetailStats.NetworkDirection.Incoming,
+                    //    MsgType.HLAPIMsg, "msg", 1);
 
                     if (msgType > MsgType.Highest)
                     {
-                        UnityEditor.NetworkDetailStats.IncrementStat(
-                            UnityEditor.NetworkDetailStats.NetworkDirection.Incoming,
-                            MsgType.UserMessage, msgType.ToString() + ":" + msgType.GetType().Name, 1);
+                        //UnityEditor.NetworkDetailStats.IncrementStat(
+                        //    UnityEditor.NetworkDetailStats.NetworkDirection.Incoming,
+                        //    MsgType.UserMessage, msgType.ToString() + ":" + msgType.GetType().Name, 1);
                     }
 #endif
 

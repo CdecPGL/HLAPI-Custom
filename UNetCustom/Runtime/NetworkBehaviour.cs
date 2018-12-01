@@ -71,9 +71,9 @@ namespace PlanetaGameLabo.UNetCustom {
             ClientScene.readyConnection.SendWriter(writer, channelId);
 
 #if UNITY_EDITOR
-            UnityEditor.NetworkDetailStats.IncrementStat(
-                UnityEditor.NetworkDetailStats.NetworkDirection.Outgoing,
-                MsgType.Command, cmdName, 1);
+            //UnityEditor.NetworkDetailStats.IncrementStat(
+            //    UnityEditor.NetworkDetailStats.NetworkDirection.Outgoing,
+            //    MsgType.Command, cmdName, 1);
 #endif
         }
 
@@ -103,9 +103,9 @@ namespace PlanetaGameLabo.UNetCustom {
             NetworkServer.SendWriterToReady(gameObject, writer, channelId);
 
 #if UNITY_EDITOR
-            UnityEditor.NetworkDetailStats.IncrementStat(
-                UnityEditor.NetworkDetailStats.NetworkDirection.Outgoing,
-                MsgType.Rpc, rpcName, 1);
+            //UnityEditor.NetworkDetailStats.IncrementStat(
+            //    UnityEditor.NetworkDetailStats.NetworkDirection.Outgoing,
+            //    MsgType.Rpc, rpcName, 1);
 #endif
         }
 
@@ -124,9 +124,9 @@ namespace PlanetaGameLabo.UNetCustom {
             conn.SendWriter(writer, channelId);
 
 #if UNITY_EDITOR
-            UnityEditor.NetworkDetailStats.IncrementStat(
-                UnityEditor.NetworkDetailStats.NetworkDirection.Outgoing,
-                MsgType.Rpc, rpcName, 1);
+            //UnityEditor.NetworkDetailStats.IncrementStat(
+            //    UnityEditor.NetworkDetailStats.NetworkDirection.Outgoing,
+            //    MsgType.Rpc, rpcName, 1);
 #endif
         }
 
@@ -155,9 +155,9 @@ namespace PlanetaGameLabo.UNetCustom {
             NetworkServer.SendWriterToReady(gameObject, writer, channelId);
 
 #if UNITY_EDITOR
-            UnityEditor.NetworkDetailStats.IncrementStat(
-                UnityEditor.NetworkDetailStats.NetworkDirection.Outgoing,
-                MsgType.SyncEvent, eventName, 1);
+            //UnityEditor.NetworkDetailStats.IncrementStat(
+            //    UnityEditor.NetworkDetailStats.NetworkDirection.Outgoing,
+            //    MsgType.SyncEvent, eventName, 1);
 #endif
         }
 

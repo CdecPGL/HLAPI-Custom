@@ -1241,9 +1241,9 @@ namespace PlanetaGameLabo.UNetCustom
             m_LocalTransformWriter.FinishMessage();
 
 #if UNITY_EDITOR
-            UnityEditor.NetworkDetailStats.IncrementStat(
-                UnityEditor.NetworkDetailStats.NetworkDirection.Outgoing,
-                MsgType.LocalPlayerTransform, "6:LocalPlayerTransform", 1);
+            //UnityEditor.NetworkDetailStats.IncrementStat(
+            //    UnityEditor.NetworkDetailStats.NetworkDirection.Outgoing,
+            //    MsgType.LocalPlayerTransform, "6:LocalPlayerTransform", 1);
 #endif
             ClientScene.readyConnection.SendWriter(m_LocalTransformWriter, GetNetworkChannel());
         }
@@ -1253,9 +1253,9 @@ namespace PlanetaGameLabo.UNetCustom
             NetworkInstanceId netId = netMsg.reader.ReadNetworkId();
 
 #if UNITY_EDITOR
-            UnityEditor.NetworkDetailStats.IncrementStat(
-                UnityEditor.NetworkDetailStats.NetworkDirection.Incoming,
-                MsgType.LocalPlayerTransform, "6:LocalPlayerTransform", 1);
+            //UnityEditor.NetworkDetailStats.IncrementStat(
+            //    UnityEditor.NetworkDetailStats.NetworkDirection.Incoming,
+            //    MsgType.LocalPlayerTransform, "6:LocalPlayerTransform", 1);
 #endif
 
             GameObject foundObj = NetworkServer.FindLocalObject(netId);

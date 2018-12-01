@@ -320,9 +320,9 @@ namespace PlanetaGameLabo.UNetCustom {
             NetworkServer.SendWriterToReady(uv.gameObject, writer, m_Behaviour.GetNetworkChannel());
 
 #if UNITY_EDITOR
-            UnityEditor.NetworkDetailStats.IncrementStat(
-                UnityEditor.NetworkDetailStats.NetworkDirection.Outgoing,
-                MsgType.SyncList, op.ToString(), 1);
+            //UnityEditor.NetworkDetailStats.IncrementStat(
+            //    UnityEditor.NetworkDetailStats.NetworkDirection.Outgoing,
+            //    MsgType.SyncList, op.ToString(), 1);
 #endif
 
             // ensure it is invoked on host

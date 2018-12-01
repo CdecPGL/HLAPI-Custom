@@ -250,9 +250,9 @@ namespace PlanetaGameLabo.UNetCustom {
         internal bool SendBytes(byte[] bytes, int bytesToSend)
         {
 #if UNITY_EDITOR
-            UnityEditor.NetworkDetailStats.IncrementStat(
-                UnityEditor.NetworkDetailStats.NetworkDirection.Outgoing,
-                MsgType.HLAPIMsg, "msg", 1);
+            //UnityEditor.NetworkDetailStats.IncrementStat(
+            //    UnityEditor.NetworkDetailStats.NetworkDirection.Outgoing,
+            //    MsgType.HLAPIMsg, "msg", 1);
 #endif
             if (bytesToSend > UInt16.MaxValue)
             {
@@ -341,9 +341,9 @@ namespace PlanetaGameLabo.UNetCustom {
         ChannelPacket AllocPacket()
         {
 #if UNITY_EDITOR
-            UnityEditor.NetworkDetailStats.SetStat(
-                UnityEditor.NetworkDetailStats.NetworkDirection.Outgoing,
-                MsgType.HLAPIPending, "msg", pendingPacketCount);
+            //UnityEditor.NetworkDetailStats.SetStat(
+            //    UnityEditor.NetworkDetailStats.NetworkDirection.Outgoing,
+            //    MsgType.HLAPIPending, "msg", pendingPacketCount);
 #endif
             if (s_FreePackets.Count == 0)
             {
@@ -360,9 +360,9 @@ namespace PlanetaGameLabo.UNetCustom {
         static void FreePacket(ChannelPacket packet)
         {
 #if UNITY_EDITOR
-            UnityEditor.NetworkDetailStats.SetStat(
-                UnityEditor.NetworkDetailStats.NetworkDirection.Outgoing,
-                MsgType.HLAPIPending, "msg", pendingPacketCount);
+            //UnityEditor.NetworkDetailStats.SetStat(
+            //    UnityEditor.NetworkDetailStats.NetworkDirection.Outgoing,
+            //    MsgType.HLAPIPending, "msg", pendingPacketCount);
 #endif
             if (s_FreePackets.Count >= k_MaxFreePacketCount)
             {
@@ -375,9 +375,9 @@ namespace PlanetaGameLabo.UNetCustom {
         public bool SendInternalBuffer()
         {
 #if UNITY_EDITOR
-            UnityEditor.NetworkDetailStats.IncrementStat(
-                UnityEditor.NetworkDetailStats.NetworkDirection.Outgoing,
-                MsgType.LLAPIMsg, "msg", 1);
+            //UnityEditor.NetworkDetailStats.IncrementStat(
+            //    UnityEditor.NetworkDetailStats.NetworkDirection.Outgoing,
+            //    MsgType.LLAPIMsg, "msg", 1);
 #endif
             if (m_IsReliable && m_PendingPackets.Count > 0)
             {

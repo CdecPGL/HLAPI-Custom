@@ -60,9 +60,9 @@ namespace PlanetaGameLabo.UNetCustom {
                     // this packet will be buffered by the containing ChannelBuffer, so this is not an error
 
 #if UNITY_EDITOR
-                    UnityEditor.NetworkDetailStats.IncrementStat(
-                        UnityEditor.NetworkDetailStats.NetworkDirection.Outgoing,
-                        MsgType.HLAPIResend, "msg", 1);
+                    //UnityEditor.NetworkDetailStats.IncrementStat(
+                    //    UnityEditor.NetworkDetailStats.NetworkDirection.Outgoing,
+                    //    MsgType.HLAPIResend, "msg", 1);
 #endif
                     return false;
                 }

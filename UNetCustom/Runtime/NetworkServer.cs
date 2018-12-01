@@ -115,7 +115,7 @@ namespace PlanetaGameLabo.UNetCustom {
         public static void Reset()
         {
 #if UNITY_EDITOR
-            UnityEditor.NetworkDetailStats.ResetAll();
+            //UnityEditor.NetworkDetailStats.ResetAll();
 #endif
             NetworkTransport.Shutdown();
             NetworkTransport.Init();
@@ -729,9 +729,9 @@ namespace PlanetaGameLabo.UNetCustom {
         void OnData(NetworkConnection conn, int receivedSize, int channelId)
         {
 #if UNITY_EDITOR
-            UnityEditor.NetworkDetailStats.IncrementStat(
-                UnityEditor.NetworkDetailStats.NetworkDirection.Incoming,
-                MsgType.LLAPIMsg, "msg", 1);
+            //UnityEditor.NetworkDetailStats.IncrementStat(
+            //    UnityEditor.NetworkDetailStats.NetworkDirection.Incoming,
+            //    MsgType.LLAPIMsg, "msg", 1);
 #endif
             conn.TransportReceive(m_SimpleServerSimple.messageBuffer, receivedSize, channelId);
         }
@@ -1334,9 +1334,9 @@ namespace PlanetaGameLabo.UNetCustom {
                 }
 
 #if UNITY_EDITOR
-                UnityEditor.NetworkDetailStats.IncrementStat(
-                    UnityEditor.NetworkDetailStats.NetworkDirection.Outgoing,
-                    MsgType.ObjectSpawn, uv.assetId.ToString(), 1);
+                //UnityEditor.NetworkDetailStats.IncrementStat(
+                //    UnityEditor.NetworkDetailStats.NetworkDirection.Outgoing,
+                //    MsgType.ObjectSpawn, uv.assetId.ToString(), 1);
 #endif
             }
             else
@@ -1364,9 +1364,9 @@ namespace PlanetaGameLabo.UNetCustom {
                 }
 
 #if UNITY_EDITOR
-                UnityEditor.NetworkDetailStats.IncrementStat(
-                    UnityEditor.NetworkDetailStats.NetworkDirection.Outgoing,
-                    MsgType.ObjectSpawnScene, "sceneId", 1);
+                //UnityEditor.NetworkDetailStats.IncrementStat(
+                //    UnityEditor.NetworkDetailStats.NetworkDirection.Outgoing,
+                //    MsgType.ObjectSpawnScene, "sceneId", 1);
 #endif
             }
         }
@@ -1459,9 +1459,9 @@ namespace PlanetaGameLabo.UNetCustom {
             }
 
 #if UNITY_EDITOR
-            UnityEditor.NetworkDetailStats.IncrementStat(
-                UnityEditor.NetworkDetailStats.NetworkDirection.Outgoing,
-                MsgType.ObjectDestroy, uv.assetId.ToString(), 1);
+            //UnityEditor.NetworkDetailStats.IncrementStat(
+            //    UnityEditor.NetworkDetailStats.NetworkDirection.Outgoing,
+            //    MsgType.ObjectDestroy, uv.assetId.ToString(), 1);
 #endif
 
             ObjectDestroyMessage msg = new ObjectDestroyMessage();

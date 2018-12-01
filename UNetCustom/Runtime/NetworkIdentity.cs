@@ -565,9 +565,9 @@ namespace PlanetaGameLabo.UNetCustom {
             invokeFunction(invokeComponent, reader);
 
 #if UNITY_EDITOR
-            UnityEditor.NetworkDetailStats.IncrementStat(
-                UnityEditor.NetworkDetailStats.NetworkDirection.Incoming,
-                MsgType.SyncEvent, NetworkBehaviour.GetCmdHashEventName(cmdHash), 1);
+            //UnityEditor.NetworkDetailStats.IncrementStat(
+            //    UnityEditor.NetworkDetailStats.NetworkDirection.Incoming,
+            //    MsgType.SyncEvent, NetworkBehaviour.GetCmdHashEventName(cmdHash), 1);
 #endif
         }
 
@@ -608,9 +608,9 @@ namespace PlanetaGameLabo.UNetCustom {
             invokeFunction(invokeComponent, reader);
 
 #if UNITY_EDITOR
-            UnityEditor.NetworkDetailStats.IncrementStat(
-                UnityEditor.NetworkDetailStats.NetworkDirection.Incoming,
-                MsgType.SyncList, NetworkBehaviour.GetCmdHashListName(cmdHash), 1);
+            //UnityEditor.NetworkDetailStats.IncrementStat(
+            //    UnityEditor.NetworkDetailStats.NetworkDirection.Incoming,
+            //    MsgType.SyncList, NetworkBehaviour.GetCmdHashListName(cmdHash), 1);
 #endif
         }
 
@@ -651,9 +651,9 @@ namespace PlanetaGameLabo.UNetCustom {
             invokeFunction(invokeComponent, reader);
 
 #if UNITY_EDITOR
-            UnityEditor.NetworkDetailStats.IncrementStat(
-                UnityEditor.NetworkDetailStats.NetworkDirection.Incoming,
-                MsgType.Command, NetworkBehaviour.GetCmdHashCmdName(cmdHash), 1);
+            //UnityEditor.NetworkDetailStats.IncrementStat(
+            //    UnityEditor.NetworkDetailStats.NetworkDirection.Incoming,
+            //    MsgType.Command, NetworkBehaviour.GetCmdHashCmdName(cmdHash), 1);
 #endif
         }
 
@@ -694,9 +694,9 @@ namespace PlanetaGameLabo.UNetCustom {
             invokeFunction(invokeComponent, reader);
 
 #if UNITY_EDITOR
-            UnityEditor.NetworkDetailStats.IncrementStat(
-                UnityEditor.NetworkDetailStats.NetworkDirection.Incoming,
-                MsgType.Rpc, NetworkBehaviour.GetCmdHashRpcName(cmdHash), 1);
+            //UnityEditor.NetworkDetailStats.IncrementStat(
+            //    UnityEditor.NetworkDetailStats.NetworkDirection.Incoming,
+            //    MsgType.Rpc, NetworkBehaviour.GetCmdHashRpcName(cmdHash), 1);
 #endif
         }
 
@@ -742,9 +742,9 @@ namespace PlanetaGameLabo.UNetCustom {
                             comp.ClearAllDirtyBits();
 
 #if UNITY_EDITOR
-                            UnityEditor.NetworkDetailStats.IncrementStat(
-                                UnityEditor.NetworkDetailStats.NetworkDirection.Outgoing,
-                                MsgType.UpdateVars, comp.GetType().Name, 1);
+                            //UnityEditor.NetworkDetailStats.IncrementStat(
+                            //    UnityEditor.NetworkDetailStats.NetworkDirection.Outgoing,
+                            //    MsgType.UpdateVars, comp.GetType().Name, 1);
 #endif
 
                             wroteData = true;
@@ -1109,7 +1109,7 @@ namespace PlanetaGameLabo.UNetCustom {
             NetworkManager.UpdateScene();
 
 #if UNITY_EDITOR
-            NetworkDetailStats.NewProfilerTick(Time.time);
+            //NetworkDetailStats.NewProfilerTick(Time.time);
 #endif
         }
     };
