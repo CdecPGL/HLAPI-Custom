@@ -12,7 +12,7 @@ namespace PlanetaGameLabo.UNetCustom {
     }
 
     [DisallowMultipleComponent]
-    [AddComponentMenu("Network/NetworkDiscovery")]
+    [AddComponentMenu("PlanetaGameLabo/UNetCustom/NetworkDiscovery")]
     public class NetworkDiscovery : MonoBehaviour
     {
         const int k_MaxBroadcastMsgSize = 1024;

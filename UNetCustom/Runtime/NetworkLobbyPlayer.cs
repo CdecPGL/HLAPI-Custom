@@ -6,7 +6,7 @@ using UnityEngine.SceneManagement;
 
 namespace PlanetaGameLabo.UNetCustom {
     [DisallowMultipleComponent]
-    [AddComponentMenu("Network/NetworkLobbyPlayer")]
+    [AddComponentMenu("PlanetaGameLabo/UNetCustom/NetworkLobbyPlayer")]
     public class NetworkLobbyPlayer : NetworkBehaviour
     {
         [Tooltip("Enable to show the default lobby GUI for this player.")]

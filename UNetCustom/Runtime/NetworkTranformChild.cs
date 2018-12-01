@@ -4,7 +4,7 @@ using UnityEngine;
 
 namespace PlanetaGameLabo.UNetCustom
 {
-    [AddComponentMenu("Network/NetworkTransformChild")]
+    [AddComponentMenu("PlanetaGameLabo/UNetCustom/NetworkTransformChild")]
     public class NetworkTransformChild : NetworkBehaviour
     {
         [SerializeField]

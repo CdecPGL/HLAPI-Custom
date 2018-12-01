@@ -5,7 +5,7 @@ using UnityEngine;
 
 namespace PlanetaGameLabo.UNetCustom
 {
-    [AddComponentMenu("Network/NetworkProximityChecker")]
+    [AddComponentMenu("PlanetaGameLabo/UNetCustom/NetworkProximityChecker")]
     [RequireComponent(typeof(NetworkIdentity))]
     public class NetworkProximityChecker : NetworkBehaviour
     {

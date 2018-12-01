@@ -73,7 +73,7 @@ namespace PlanetaGameLabo.UNetCustom {
         RoundRobin
     };
 
-    [AddComponentMenu("Network/NetworkManager")]
+    [AddComponentMenu("PlanetaGameLabo/UNetCustom/NetworkManager")]
     public class NetworkManager : MonoBehaviour
     {
         // configuration

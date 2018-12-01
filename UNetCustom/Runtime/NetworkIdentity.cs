@@ -12,7 +12,7 @@ using UnityEditor;
 namespace PlanetaGameLabo.UNetCustom {
     [ExecuteInEditMode]
     [DisallowMultipleComponent]
-    [AddComponentMenu("Network/NetworkIdentity")]
+    [AddComponentMenu("PlanetaGameLabo/UNetCustom/NetworkIdentity")]
     public sealed class NetworkIdentity : MonoBehaviour
     {
         // configuration

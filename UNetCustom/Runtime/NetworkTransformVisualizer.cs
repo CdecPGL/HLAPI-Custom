@@ -6,7 +6,7 @@ using UnityEngine;
 namespace PlanetaGameLabo.UNetCustom
 {
     [DisallowMultipleComponent]
-    [AddComponentMenu("Network/NetworkTransformVisualizer")]
+    [AddComponentMenu("PlanetaGameLabo/UNetCustom/NetworkTransformVisualizer")]
     [RequireComponent(typeof(NetworkTransform))]
     [EditorBrowsable(EditorBrowsableState.Never)]
     public class NetworkTransformVisualizer : NetworkBehaviour

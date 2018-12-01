@@ -4,7 +4,7 @@ using UnityEngine;
 #if ENABLE_UNET
 
 namespace PlanetaGameLabo.UNetCustom {
-    [AddComponentMenu("Network/NetworkManagerHUD")]
+    [AddComponentMenu("PlanetaGameLabo/UNetCustom/NetworkManagerHUD")]
     [RequireComponent(typeof(NetworkManager))]
     [EditorBrowsable(EditorBrowsableState.Never)]
     public class NetworkManagerHUD : MonoBehaviour

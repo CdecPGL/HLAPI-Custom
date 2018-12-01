@@ -6,7 +6,7 @@ using PlanetaGameLabo.UNetCustom.NetworkSystem;
 namespace PlanetaGameLabo.UNetCustom
 {
     [DisallowMultipleComponent]
-    [AddComponentMenu("Network/NetworkAnimator")]
+    [AddComponentMenu("PlanetaGameLabo/UNetCustom/NetworkAnimator")]
     [RequireComponent(typeof(NetworkIdentity))]
     [RequireComponent(typeof(Animator))]
     public class NetworkAnimator : NetworkBehaviour

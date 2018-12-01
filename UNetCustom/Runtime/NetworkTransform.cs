@@ -5,7 +5,7 @@ using UnityEngine;
 namespace PlanetaGameLabo.UNetCustom
 {
     [DisallowMultipleComponent]
-    [AddComponentMenu("Network/NetworkTransform")]
+    [AddComponentMenu("PlanetaGameLabo/UNetCustom/NetworkTransform")]
     public class NetworkTransform : NetworkBehaviour
     {
         public enum TransformSyncMode

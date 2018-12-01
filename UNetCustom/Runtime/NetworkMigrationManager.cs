@@ -9,7 +9,7 @@ using UnityEngine.Networking.Match;
 using UnityEngine.Networking.Types;
 
 namespace PlanetaGameLabo.UNetCustom {
-    [AddComponentMenu("Network/NetworkMigrationManager")]
+    [AddComponentMenu("PlanetaGameLabo/UNetCustom/NetworkMigrationManager")]
     public class NetworkMigrationManager : MonoBehaviour
     {
         public enum SceneChangeOption

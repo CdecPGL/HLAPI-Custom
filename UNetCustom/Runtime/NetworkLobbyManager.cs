@@ -8,7 +8,7 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 
 namespace PlanetaGameLabo.UNetCustom {
-    [AddComponentMenu("Network/NetworkLobbyManager")]
+    [AddComponentMenu("PlanetaGameLabo/UNetCustom/NetworkLobbyManager")]
     public class NetworkLobbyManager : NetworkManager
     {
         struct PendingPlayer

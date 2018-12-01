@@ -5,7 +5,7 @@ using UnityEngine;
 namespace PlanetaGameLabo.UNetCustom
 {
     [DisallowMultipleComponent]
-    [AddComponentMenu("Network/NetworkStartPosition")]
+    [AddComponentMenu("PlanetaGameLabo/UNetCustom/NetworkStartPosition")]
     public class NetworkStartPosition : MonoBehaviour
     {
         public void Awake()
