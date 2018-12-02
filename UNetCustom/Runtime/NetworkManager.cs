@@ -330,6 +330,18 @@ namespace PlanetaGameLabo.UNetCustom {
                 Debug.LogWarning("NetworkManager: Second channel needs to be Unreliable because in the code Channels.DefaultReliable is 1.");
         }
 
+        // NetworkIdentity.UNetStaticUpdate is called from UnityEngine while LLAPI network is active.
+        // if we want TCP then we need to call it manually. probably best from NetworkManager, although this means
+        // that we can't use NetworkServer/NetworkClient without a NetworkManager invoking Update anymore.
+        //
+        // protected so that inheriting classes' LateUpdate() can call base.LateUpdate() too
+        protected void LateUpdate() {
+            // call it while the NetworkManager exists.
+            // -> we don't only call while Client/Server.Connected, because then we would stop if disconnected and the
+            //    NetworkClient wouldn't receive the last Disconnect event, result in all kinds of issues
+            NetworkIdentity.UNetStaticUpdate();
+        }
+
         internal void RegisterServerMessages()
         {
             NetworkServer.RegisterHandler(MsgType.Connect, OnServerConnectInternal);

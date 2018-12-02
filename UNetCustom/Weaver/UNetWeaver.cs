@@ -1030,19 +1030,19 @@ namespace PlanetaGameLabo.UNetWeaver
             {
                 foreach (CustomAttribute attr in md.CustomAttributes)
                 {
-                    if (attr.Constructor.DeclaringType.ToString() == "UnityEngine.Networking.ServerAttribute")
+                    if (attr.Constructor.DeclaringType.ToString() == "PlanetaGameLabo.UNetCustom.ServerAttribute")
                     {
                         InjectServerGuard(moduleDef, td, md, true);
                     }
-                    else if (attr.Constructor.DeclaringType.ToString() == "UnityEngine.Networking.ServerCallbackAttribute")
+                    else if (attr.Constructor.DeclaringType.ToString() == "PlanetaGameLabo.UNetCustom.ServerCallbackAttribute")
                     {
                         InjectServerGuard(moduleDef, td, md, false);
                     }
-                    else if (attr.Constructor.DeclaringType.ToString() == "UnityEngine.Networking.ClientAttribute")
+                    else if (attr.Constructor.DeclaringType.ToString() == "PlanetaGameLabo.UNetCustom.ClientAttribute")
                     {
                         InjectClientGuard(moduleDef, td, md, true);
                     }
-                    else if (attr.Constructor.DeclaringType.ToString() == "UnityEngine.Networking.ClientCallbackAttribute")
+                    else if (attr.Constructor.DeclaringType.ToString() == "PlanetaGameLabo.UNetCustom.ClientCallbackAttribute")
                     {
                         InjectClientGuard(moduleDef, td, md, false);
                     }
@@ -1272,24 +1272,24 @@ namespace PlanetaGameLabo.UNetWeaver
             transformType = m_UnityAssemblyDefinition.MainModule.GetType("UnityEngine.Transform");
             unityObjectType = m_UnityAssemblyDefinition.MainModule.GetType("UnityEngine.Object");
 
-            hashType = m_UNetAssemblyDefinition.MainModule.GetType("UnityEngine.Networking.NetworkHash128");
-            NetworkClientType = m_UNetAssemblyDefinition.MainModule.GetType("UnityEngine.Networking.NetworkClient");
-            NetworkServerType = m_UNetAssemblyDefinition.MainModule.GetType("UnityEngine.Networking.NetworkServer");
-            NetworkCRCType = m_UNetAssemblyDefinition.MainModule.GetType("UnityEngine.Networking.NetworkCRC");
+            hashType = m_UNetAssemblyDefinition.MainModule.GetType("PlanetaGameLabo.UNetCustom.NetworkHash128");
+            NetworkClientType = m_UNetAssemblyDefinition.MainModule.GetType("PlanetaGameLabo.UNetCustom.NetworkClient");
+            NetworkServerType = m_UNetAssemblyDefinition.MainModule.GetType("PlanetaGameLabo.UNetCustom.NetworkServer");
+            NetworkCRCType = m_UNetAssemblyDefinition.MainModule.GetType("PlanetaGameLabo.UNetCustom.NetworkCRC");
 
-            SyncVarType = m_UNetAssemblyDefinition.MainModule.GetType("UnityEngine.Networking.SyncVarAttribute");
-            CommandType = m_UNetAssemblyDefinition.MainModule.GetType("UnityEngine.Networking.CommandAttribute");
-            ClientRpcType = m_UNetAssemblyDefinition.MainModule.GetType("UnityEngine.Networking.ClientRpcAttribute");
-            TargetRpcType = m_UNetAssemblyDefinition.MainModule.GetType("UnityEngine.Networking.TargetRpcAttribute");
-            SyncEventType = m_UNetAssemblyDefinition.MainModule.GetType("UnityEngine.Networking.SyncEventAttribute");
-            SyncListType = m_UNetAssemblyDefinition.MainModule.GetType("UnityEngine.Networking.SyncList`1");
-            NetworkSettingsType = m_UNetAssemblyDefinition.MainModule.GetType("UnityEngine.Networking.NetworkSettingsAttribute");
+            SyncVarType = m_UNetAssemblyDefinition.MainModule.GetType("PlanetaGameLabo.UNetCustom.SyncVarAttribute");
+            CommandType = m_UNetAssemblyDefinition.MainModule.GetType("PlanetaGameLabo.UNetCustom.CommandAttribute");
+            ClientRpcType = m_UNetAssemblyDefinition.MainModule.GetType("PlanetaGameLabo.UNetCustom.ClientRpcAttribute");
+            TargetRpcType = m_UNetAssemblyDefinition.MainModule.GetType("PlanetaGameLabo.UNetCustom.TargetRpcAttribute");
+            SyncEventType = m_UNetAssemblyDefinition.MainModule.GetType("PlanetaGameLabo.UNetCustom.SyncEventAttribute");
+            SyncListType = m_UNetAssemblyDefinition.MainModule.GetType("PlanetaGameLabo.UNetCustom.SyncList`1");
+            NetworkSettingsType = m_UNetAssemblyDefinition.MainModule.GetType("PlanetaGameLabo.UNetCustom.NetworkSettingsAttribute");
 
-            SyncListFloatType = m_UNetAssemblyDefinition.MainModule.GetType("UnityEngine.Networking.SyncListFloat");
-            SyncListIntType = m_UNetAssemblyDefinition.MainModule.GetType("UnityEngine.Networking.SyncListInt");
-            SyncListUIntType = m_UNetAssemblyDefinition.MainModule.GetType("UnityEngine.Networking.SyncListUInt");
-            SyncListBoolType = m_UNetAssemblyDefinition.MainModule.GetType("UnityEngine.Networking.SyncListBool");
-            SyncListStringType = m_UNetAssemblyDefinition.MainModule.GetType("UnityEngine.Networking.SyncListString");
+            SyncListFloatType = m_UNetAssemblyDefinition.MainModule.GetType("PlanetaGameLabo.UNetCustom.SyncListFloat");
+            SyncListIntType = m_UNetAssemblyDefinition.MainModule.GetType("PlanetaGameLabo.UNetCustom.SyncListInt");
+            SyncListUIntType = m_UNetAssemblyDefinition.MainModule.GetType("PlanetaGameLabo.UNetCustom.SyncListUInt");
+            SyncListBoolType = m_UNetAssemblyDefinition.MainModule.GetType("PlanetaGameLabo.UNetCustom.SyncListBool");
+            SyncListStringType = m_UNetAssemblyDefinition.MainModule.GetType("PlanetaGameLabo.UNetCustom.SyncListString");
         }
 
         static void SetupCorLib()
@@ -1333,23 +1333,23 @@ namespace PlanetaGameLabo.UNetWeaver
             IEnumeratorType = ImportCorLibType("System.Collections.IEnumerator");
             MemoryStreamType = ImportCorLibType("System.IO.MemoryStream");
 
-            NetworkReaderType = m_UNetAssemblyDefinition.MainModule.GetType("UnityEngine.Networking.NetworkReader");
+            NetworkReaderType = m_UNetAssemblyDefinition.MainModule.GetType("PlanetaGameLabo.UNetCustom.NetworkReader");
             NetworkReaderDef = NetworkReaderType.Resolve();
 
             NetworkReaderCtor = ResolveMethod(NetworkReaderDef, ".ctor");
 
-            NetworkWriterType = m_UNetAssemblyDefinition.MainModule.GetType("UnityEngine.Networking.NetworkWriter");
+            NetworkWriterType = m_UNetAssemblyDefinition.MainModule.GetType("PlanetaGameLabo.UNetCustom.NetworkWriter");
             NetworkWriterDef  = NetworkWriterType.Resolve();
 
             NetworkWriterCtor = ResolveMethod(NetworkWriterDef, ".ctor");
 
             MemoryStreamCtor = ResolveMethod(MemoryStreamType, ".ctor");
 
-            NetworkInstanceIdType = m_UNetAssemblyDefinition.MainModule.GetType("UnityEngine.Networking.NetworkInstanceId");
-            NetworkSceneIdType = m_UNetAssemblyDefinition.MainModule.GetType("UnityEngine.Networking.NetworkSceneId");
+            NetworkInstanceIdType = m_UNetAssemblyDefinition.MainModule.GetType("PlanetaGameLabo.UNetCustom.NetworkInstanceId");
+            NetworkSceneIdType = m_UNetAssemblyDefinition.MainModule.GetType("PlanetaGameLabo.UNetCustom.NetworkSceneId");
 
-            NetworkInstanceIdType = m_UNetAssemblyDefinition.MainModule.GetType("UnityEngine.Networking.NetworkInstanceId");
-            NetworkSceneIdType = m_UNetAssemblyDefinition.MainModule.GetType("UnityEngine.Networking.NetworkSceneId");
+            NetworkInstanceIdType = m_UNetAssemblyDefinition.MainModule.GetType("PlanetaGameLabo.UNetCustom.NetworkInstanceId");
+            NetworkSceneIdType = m_UNetAssemblyDefinition.MainModule.GetType("PlanetaGameLabo.UNetCustom.NetworkSceneId");
 
             NetworkServerGetActive = ResolveMethod(NetworkServerType, "get_active");
             NetworkServerGetLocalClientActive = ResolveMethod(NetworkServerType, "get_localClientActive");
@@ -1377,12 +1377,12 @@ namespace PlanetaGameLabo.UNetWeaver
             NetworkReadUInt16 = ResolveMethod(NetworkReaderType, "ReadUInt16");
             NetworkWriteUInt16 = ResolveMethodWithArg(NetworkWriterType, "Write", uint16Type);
 
-            CmdDelegateReference = m_UNetAssemblyDefinition.MainModule.GetType("UnityEngine.Networking.NetworkBehaviour/CmdDelegate");
+            CmdDelegateReference = m_UNetAssemblyDefinition.MainModule.GetType("PlanetaGameLabo.UNetCustom.NetworkBehaviour/CmdDelegate");
             CmdDelegateConstructor = ResolveMethod(CmdDelegateReference, ".ctor");
             scriptDef.MainModule.ImportReference(gameObjectType);
             scriptDef.MainModule.ImportReference(transformType);
 
-            TypeReference unetViewTmp = m_UNetAssemblyDefinition.MainModule.GetType("UnityEngine.Networking.NetworkIdentity");
+            TypeReference unetViewTmp = m_UNetAssemblyDefinition.MainModule.GetType("PlanetaGameLabo.UNetCustom.NetworkIdentity");
             NetworkIdentityType = scriptDef.MainModule.ImportReference(unetViewTmp);
 
             NetworkInstanceIdType = scriptDef.MainModule.ImportReference(NetworkInstanceIdType);
@@ -1400,29 +1400,29 @@ namespace PlanetaGameLabo.UNetWeaver
             SyncListStringWriteType = ResolveMethod(SyncListStringType, "WriteInstance");
 
 
-            NetworkBehaviourType = m_UNetAssemblyDefinition.MainModule.GetType("UnityEngine.Networking.NetworkBehaviour");
+            NetworkBehaviourType = m_UNetAssemblyDefinition.MainModule.GetType("PlanetaGameLabo.UNetCustom.NetworkBehaviour");
             NetworkBehaviourType2 = scriptDef.MainModule.ImportReference(NetworkBehaviourType);
-            NetworkConnectionType = m_UNetAssemblyDefinition.MainModule.GetType("UnityEngine.Networking.NetworkConnection");
+            NetworkConnectionType = m_UNetAssemblyDefinition.MainModule.GetType("PlanetaGameLabo.UNetCustom.NetworkConnection");
 
             MonoBehaviourType = m_UnityAssemblyDefinition.MainModule.GetType("UnityEngine.MonoBehaviour");
             ScriptableObjectType = m_UnityAssemblyDefinition.MainModule.GetType("UnityEngine.ScriptableObject");
 
-            NetworkConnectionType = m_UNetAssemblyDefinition.MainModule.GetType("UnityEngine.Networking.NetworkConnection");
+            NetworkConnectionType = m_UNetAssemblyDefinition.MainModule.GetType("PlanetaGameLabo.UNetCustom.NetworkConnection");
             NetworkConnectionType = scriptDef.MainModule.ImportReference(NetworkConnectionType);
 
-            ULocalConnectionToServerType = m_UNetAssemblyDefinition.MainModule.GetType("UnityEngine.Networking.ULocalConnectionToServer");
+            ULocalConnectionToServerType = m_UNetAssemblyDefinition.MainModule.GetType("PlanetaGameLabo.UNetCustom.ULocalConnectionToServer");
             ULocalConnectionToServerType = scriptDef.MainModule.ImportReference(ULocalConnectionToServerType);
 
-            ULocalConnectionToClientType = m_UNetAssemblyDefinition.MainModule.GetType("UnityEngine.Networking.ULocalConnectionToClient");
+            ULocalConnectionToClientType = m_UNetAssemblyDefinition.MainModule.GetType("PlanetaGameLabo.UNetCustom.ULocalConnectionToClient");
             ULocalConnectionToClientType = scriptDef.MainModule.ImportReference(ULocalConnectionToClientType);
 
-            MessageBaseType = m_UNetAssemblyDefinition.MainModule.GetType("UnityEngine.Networking.MessageBase");
-            SyncListStructType = m_UNetAssemblyDefinition.MainModule.GetType("UnityEngine.Networking.SyncListStruct`1");
+            MessageBaseType = m_UNetAssemblyDefinition.MainModule.GetType("PlanetaGameLabo.UNetCustom.MessageBase");
+            SyncListStructType = m_UNetAssemblyDefinition.MainModule.GetType("PlanetaGameLabo.UNetCustom.SyncListStruct`1");
 
             NetworkBehaviourDirtyBitsReference = ResolveProperty(NetworkBehaviourType, "syncVarDirtyBits");
 
             ComponentType = m_UnityAssemblyDefinition.MainModule.GetType("UnityEngine.Component");
-            ClientSceneType = m_UNetAssemblyDefinition.MainModule.GetType("UnityEngine.Networking.ClientScene");
+            ClientSceneType = m_UNetAssemblyDefinition.MainModule.GetType("PlanetaGameLabo.UNetCustom.ClientScene");
             FindLocalObjectReference = ResolveMethod(ClientSceneType, "FindLocalObject");
             RegisterBehaviourReference = ResolveMethod(NetworkCRCType, "RegisterBehaviour");
             ReadyConnectionReference = ResolveMethod(ClientSceneType, "get_readyConnection");

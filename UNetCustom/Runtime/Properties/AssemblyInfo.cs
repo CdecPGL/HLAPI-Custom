@@ -14,7 +14,7 @@ using System.Runtime.InteropServices;
 [assembly: AssemblyCopyright("Copyright © 2018")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
-[assembly: InternalsVisibleTo("PlanetaGameLabo.Editor")]
+[assembly: InternalsVisibleTo("PlanetaGameLabo.UNetCustom.Editor")]
 [assembly: InternalsVisibleTo("Assembly-CSharp-Editor-testable")]
 
 // Setting ComVisible to false makes the types in this assembly not visible
