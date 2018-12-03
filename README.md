@@ -2,7 +2,7 @@
 
 [![Build status](https://ci.appveyor.com/api/projects/status/g22xd40dlg6opj9n/branch/master?svg=true)](https://ci.appveyor.com/project/CdecPGL/hlapi-custom/branch/master)
 
-Customized UNet HLAPI based on fixes branch of [Mirror](https://github.com/vis2k/Mirror).
+Customized UNet HLAPI based on fixes branch of [Mirror](https://github.com/vis2k/Mirror), which is Unity's network library based on UNet.
 
 ## Install
 
