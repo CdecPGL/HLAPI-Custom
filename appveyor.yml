@@ -17,12 +17,6 @@ artifacts:
 
 image: Visual Studio 2017
 
-skip_commits:
-  files:
-    - '**/*.md'
-    - '**/*.txt'
-    - '.gitignore'
-
 deploy:
   description: 'UNet Custom 2018'
   provider: GitHub
