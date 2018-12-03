@@ -4,6 +4,18 @@
 
 Customized UNet HLAPI based on fixes branch of [Mirror](https://github.com/vis2k/Mirror).
 
+## Install
+
+1. Download dlls
+2. Put downloaded dlls to your project window in Unity
+3. Exclude Runtime/PlanetaGameLabo.UNetCustom.Runtime.dll from Editor
+4. Only include Runtime-Editor/PlanetaGameLabo.UNetCustom.Runtime.dll
+
+## Usage
+
+API is ame as UNet.
+You can reffer the document of UNet.
+
 ## Additional Features
 
 - Customize scene loading process in NetworkManager
