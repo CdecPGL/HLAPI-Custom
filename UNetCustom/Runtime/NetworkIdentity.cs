@@ -228,13 +228,13 @@ namespace PlanetaGameLabo.UNetCustom {
             return false;
         }
 
-        bool ThisIsASceneObjectWithPrefabParent(out GameObject prefab)
+        bool ThisIsASceneObjectWithThatReferencesPrefabAsset(out GameObject prefab)
         {
             prefab = null;
             PrefabType prefabType = PrefabUtility.GetPrefabType(gameObject);
             if (prefabType == PrefabType.None)
                 return false;
-            prefab = (GameObject)PrefabUtility.GetPrefabParent(gameObject);
+            prefab = (GameObject)PrefabUtility.GetCorrespondingObjectFromSource(gameObject);
             if (prefab == null)
             {
                 if (LogFilter.logError) { Debug.LogError("Failed to find prefab parent for scene object [name:" + gameObject.name + "]"); }
@@ -251,7 +251,7 @@ namespace PlanetaGameLabo.UNetCustom {
                 ForceSceneId(0);
                 AssignAssetID(gameObject);
             }
-            else if (ThisIsASceneObjectWithPrefabParent(out prefab))
+            else if (ThisIsASceneObjectWithThatReferencesPrefabAsset(out prefab))
             {
                 AssignAssetID(prefab);
             }

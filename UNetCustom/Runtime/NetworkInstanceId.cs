@@ -4,8 +4,7 @@ using UnityEngine;
 
 namespace PlanetaGameLabo.UNetCustom {
     [Serializable]
-    public struct NetworkInstanceId
-    {
+    public struct NetworkInstanceId : IEquatable<NetworkInstanceId> {
         public NetworkInstanceId(uint value)
         {
             m_Value = value;
@@ -26,10 +25,14 @@ namespace PlanetaGameLabo.UNetCustom {
 
         public override bool Equals(object obj)
         {
-            return obj is NetworkInstanceId && this == (NetworkInstanceId)obj;
+            return obj is NetworkInstanceId && Equals((NetworkInstanceId)obj);
         }
 
-        public static bool operator==(NetworkInstanceId c1, NetworkInstanceId c2)
+        public bool Equals(NetworkInstanceId other) {
+            return this == other;
+        }
+
+    public static bool operator==(NetworkInstanceId c1, NetworkInstanceId c2)
         {
             return c1.m_Value == c2.m_Value;
         }

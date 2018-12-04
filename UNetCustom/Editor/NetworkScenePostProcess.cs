@@ -151,7 +151,7 @@ namespace PlanetaGameLabo.Editor {
                 if (LogFilter.logDebug) { Debug.Log("PostProcess sceneid assigned: name=" + uv.name + " scene=" + uv.gameObject.scene.name + " sceneid=" + uv.sceneId); }
 
                 // saftey check for prefabs with more than one NetworkIdentity
-                var prefabGO = UnityEditor.PrefabUtility.GetPrefabParent(uv.gameObject) as GameObject;
+                var prefabGO = UnityEditor.PrefabUtility.GetCorrespondingObjectFromSource(uv.gameObject) as GameObject;
                 if (prefabGO)
                 {
                     var prefabRootGO = UnityEditor.PrefabUtility.FindPrefabRoot(prefabGO);

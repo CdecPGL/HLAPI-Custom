@@ -1501,7 +1501,7 @@ namespace PlanetaGameLabo.UNetCustom {
         static bool CheckForPrefab(GameObject obj)
         {
 #if UNITY_EDITOR
-            return (UnityEditor.PrefabUtility.GetPrefabParent(obj) == null) && (UnityEditor.PrefabUtility.GetPrefabObject(obj) != null);
+            return (UnityEditor.PrefabUtility.GetCorrespondingObjectFromSource(obj) == null) && (UnityEditor.PrefabUtility.GetPrefabObject(obj) != null);
 #else
             return false;
 #endif
