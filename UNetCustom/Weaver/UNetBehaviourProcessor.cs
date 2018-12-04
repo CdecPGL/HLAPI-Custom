@@ -2248,7 +2248,7 @@ namespace PlanetaGameLabo.UNetWeaver
                     }
                 }
 
-                if (fd.FieldType.FullName.Contains("UnityEngine.Networking.SyncListStruct"))
+                if (fd.FieldType.FullName.Contains("PlanetaGameLabo.UNetCustom.SyncListStruct"))
                 {
                     Log.Error("SyncListStruct member variable [" + fd.FullName + "] must use a dervied class, like \"class MySyncList : SyncListStruct<MyStruct> {}\".");
                     Weaver.fail = true;
