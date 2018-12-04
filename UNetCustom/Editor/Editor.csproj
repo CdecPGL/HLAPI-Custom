@@ -53,7 +53,6 @@
     <Compile Include="NetworkManagerHUDEditor.cs" />
     <Compile Include="NetworkBehaviourInspector.cs" />
     <Compile Include="NetworkInformationPreview.cs" />
-    <Compile Include="NetworkServiceInitialize.cs" />
     <Compile Include="NetworkScenePostProcess.cs" />
     <Compile Include="NetworkIdentityEditor.cs" />
     <Compile Include="NetworkMigrationManagerEditor.cs" />
