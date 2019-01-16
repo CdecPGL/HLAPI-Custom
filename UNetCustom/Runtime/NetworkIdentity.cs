@@ -222,17 +222,13 @@ namespace PlanetaGameLabo.UNetCustom {
 
         bool ThisIsAPrefab()
         {
-            PrefabType prefabType = PrefabUtility.GetPrefabType(gameObject);
-            if (prefabType == PrefabType.Prefab)
-                return true;
-            return false;
+            return PrefabUtility.IsPartOfPrefabAsset(gameObject);
         }
 
         bool ThisIsASceneObjectWithThatReferencesPrefabAsset(out GameObject prefab)
         {
             prefab = null;
-            PrefabType prefabType = PrefabUtility.GetPrefabType(gameObject);
-            if (prefabType == PrefabType.None)
+            if (!PrefabUtility.IsPartOfNonAssetPrefabInstance(gameObject))
                 return false;
             prefab = (GameObject)PrefabUtility.GetCorrespondingObjectFromSource(gameObject);
             if (prefab == null)

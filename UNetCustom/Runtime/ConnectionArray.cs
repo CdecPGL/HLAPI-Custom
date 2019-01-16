@@ -82,7 +82,7 @@ namespace PlanetaGameLabo.UNetCustom {
                 return;
             }
 
-            if (connId < 0 || connId >= m_Connections.Count)
+            if (connId >= m_Connections.Count)
             {
                 if (LogFilter.logWarn) { Debug.LogWarning("ConnectionArray Remove invalid index " + connId); }
                 return;

@@ -94,7 +94,7 @@ namespace PlanetaGameLabo.UNetCustom {
 
         NetworkServer()
         {
-            NetworkTransport.Init();
+            NetworkManager.activeTransport.Init();
             if (LogFilter.logDev) { Debug.Log("NetworkServer Created version " + Version.Current); }
             m_RemoveList = new HashSet<NetworkInstanceId>();
             m_ExternalConnections = new HashSet<int>();
@@ -117,8 +117,8 @@ namespace PlanetaGameLabo.UNetCustom {
 #if UNITY_EDITOR
             //UnityEditor.NetworkDetailStats.ResetAll();
 #endif
-            NetworkTransport.Shutdown();
-            NetworkTransport.Init();
+            NetworkManager.activeTransport.Shutdown();
+            NetworkManager.activeTransport.Init();
             s_Instance = null;
             s_Active = false;
         }
@@ -1501,7 +1501,7 @@ namespace PlanetaGameLabo.UNetCustom {
         static bool CheckForPrefab(GameObject obj)
         {
 #if UNITY_EDITOR
-            return (UnityEditor.PrefabUtility.GetCorrespondingObjectFromSource(obj) == null) && (UnityEditor.PrefabUtility.GetPrefabObject(obj) != null);
+            return UnityEditor.PrefabUtility.IsPartOfPrefabAsset(obj);
 #else
             return false;
 #endif

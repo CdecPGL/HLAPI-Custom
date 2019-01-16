@@ -114,9 +114,9 @@ namespace PlanetaGameLabo.Editor {
             EditorGUILayout.PropertyField(m_InterpolateRotation, m_InterpolateRotationLabel);
 
             int newRotation = EditorGUILayout.Popup(
-                    m_RotationAxisLabel,
-                    (int)sync.syncRotationAxis,
-                    axisOptions);
+                m_RotationAxisLabel,
+                (int)sync.syncRotationAxis,
+                axisOptions);
             if ((NetworkTransform.AxisSyncMode)newRotation != sync.syncRotationAxis)
             {
                 sync.syncRotationAxis = (NetworkTransform.AxisSyncMode)newRotation;

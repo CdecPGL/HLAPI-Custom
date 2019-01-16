@@ -35,7 +35,7 @@ namespace PlanetaGameLabo.UNetCustom {
 
         public override void OnStartClient()
         {
-            var lobby = NetworkManager.singleton as NetworkLobbyManager;
+            var lobby = GetLobbyManager();
             if (lobby)
             {
                 lobby.lobbySlots[m_Slot] = this;
@@ -52,7 +52,7 @@ namespace PlanetaGameLabo.UNetCustom {
         {
             if (LogFilter.logDebug) { Debug.Log("NetworkLobbyPlayer SendReadyToBeginMessage"); }
 
-            var lobby = NetworkManager.singleton as NetworkLobbyManager;
+            var lobby = GetLobbyManager();
             if (lobby)
             {
                 var msg = new LobbyReadyToBeginMessage();
@@ -66,7 +66,7 @@ namespace PlanetaGameLabo.UNetCustom {
         {
             if (LogFilter.logDebug) { Debug.Log("NetworkLobbyPlayer SendReadyToBeginMessage"); }
 
-            var lobby = NetworkManager.singleton as NetworkLobbyManager;
+            var lobby = GetLobbyManager();
             if (lobby)
             {
                 var msg = new LobbyReadyToBeginMessage();
@@ -80,7 +80,7 @@ namespace PlanetaGameLabo.UNetCustom {
         {
             if (LogFilter.logDebug) { Debug.Log("NetworkLobbyPlayer SendSceneLoadedMessage"); }
 
-            var lobby = NetworkManager.singleton as NetworkLobbyManager;
+            var lobby = GetLobbyManager();
             if (lobby)
             {
                 var msg = new IntegerMessage(playerControllerId);
@@ -90,7 +90,7 @@ namespace PlanetaGameLabo.UNetCustom {
 
         void OnSceneLoaded(Scene scene, LoadSceneMode mode)
         {
-            var lobby = NetworkManager.singleton as NetworkLobbyManager;
+            var lobby = GetLobbyManager();
             if (lobby)
             {
                 // dont even try this in the startup scene
@@ -109,7 +109,12 @@ namespace PlanetaGameLabo.UNetCustom {
             }
         }
 
-        public void RemovePlayer()
+        NetworkLobbyManager GetLobbyManager()
+        {
+            return NetworkManager.singleton as NetworkLobbyManager;
+        }
+
+    public void RemovePlayer()
         {
             if (isLocalPlayer && !m_ReadyToBegin)
             {
@@ -162,7 +167,7 @@ namespace PlanetaGameLabo.UNetCustom {
             if (!ShowLobbyGUI)
                 return;
 
-            var lobby = NetworkManager.singleton as NetworkLobbyManager;
+            var lobby = GetLobbyManager();
             if (lobby)
             {
                 if (!lobby.showLobbyGUI)

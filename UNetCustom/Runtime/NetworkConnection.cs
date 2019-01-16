@@ -83,7 +83,7 @@ namespace PlanetaGameLabo.UNetCustom {
             int numChannels = hostTopology.DefaultConfig.ChannelCount;
             int packetSize = hostTopology.DefaultConfig.PacketSize;
 
-            if ((hostTopology.DefaultConfig.UsePlatformSpecificProtocols) && (UnityEngine.Application.platform != RuntimePlatform.PS4) && (UnityEngine.Application.platform != RuntimePlatform.PSP2))
+            if ((hostTopology.DefaultConfig.UsePlatformSpecificProtocols) && (UnityEngine.Application.platform != RuntimePlatform.PS4))
                 throw new ArgumentOutOfRangeException("Platform specific protocols are not supported on this platform");
 
             m_Channels = new ChannelBuffer[numChannels];
@@ -187,7 +187,7 @@ namespace PlanetaGameLabo.UNetCustom {
                 return;
             }
             byte error;
-            NetworkTransport.Disconnect(hostId, connectionId, out error);
+            NetworkManager.activeTransport.Disconnect(hostId, connectionId, out error);
 
             RemoveObservers();
         }
@@ -413,8 +413,8 @@ namespace PlanetaGameLabo.UNetCustom {
                     var value = m_PacketStats[i];
                     value.count = 0;
                     value.bytes = 0;
-                    NetworkTransport.SetPacketStat(0, i, 0, 0);
-                    NetworkTransport.SetPacketStat(1, i, 0, 0);
+                    NetworkManager.activeTransport.SetPacketStat(0, i, 0, 0);
+                    NetworkManager.activeTransport.SetPacketStat(1, i, 0, 0);
                 }
             }
 #endif
@@ -601,7 +601,7 @@ namespace PlanetaGameLabo.UNetCustom {
 
         public virtual bool TransportSend(byte[] bytes, int numBytes, int channelId, out byte error)
         {
-            return NetworkTransport.Send(hostId, connectionId, channelId, bytes, numBytes, out error);
+            return NetworkManager.activeTransport.Send(hostId, connectionId, channelId, bytes, numBytes, out error);
         }
 
         internal void AddOwnedObject(NetworkIdentity obj)

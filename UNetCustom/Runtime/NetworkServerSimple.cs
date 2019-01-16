@@ -58,7 +58,7 @@ namespace PlanetaGameLabo.UNetCustom {
                 return;
 
             m_Initialized = true;
-            NetworkTransport.Init();
+            NetworkManager.activeTransport.Init();
 
             m_MsgBuffer = new byte[NetworkMessage.MaxMessageSize];
             m_MsgReader = new NetworkReader(m_MsgBuffer);
@@ -93,11 +93,11 @@ namespace PlanetaGameLabo.UNetCustom {
 
             if (m_UseWebSockets)
             {
-                m_ServerHostId = NetworkTransport.AddWebsocketHost(m_HostTopology, serverListenPort, ipAddress);
+                m_ServerHostId = NetworkManager.activeTransport.AddWebsocketHost(m_HostTopology, serverListenPort, ipAddress);
             }
             else
             {
-                m_ServerHostId = NetworkTransport.AddHost(m_HostTopology, serverListenPort, ipAddress);
+                m_ServerHostId = NetworkManager.activeTransport.AddHost(m_HostTopology, serverListenPort, ipAddress);
             }
 
             if (m_ServerHostId == -1)
@@ -122,11 +122,11 @@ namespace PlanetaGameLabo.UNetCustom {
 
             if (m_UseWebSockets)
             {
-                m_ServerHostId = NetworkTransport.AddWebsocketHost(m_HostTopology, serverListenPort);
+                m_ServerHostId = NetworkManager.activeTransport.AddWebsocketHost(m_HostTopology, serverListenPort, null);
             }
             else
             {
-                m_ServerHostId = NetworkTransport.AddHost(m_HostTopology, serverListenPort);
+                m_ServerHostId = NetworkManager.activeTransport.AddHost(m_HostTopology, serverListenPort, null);
             }
 
             if (m_ServerHostId == -1)
@@ -142,13 +142,13 @@ namespace PlanetaGameLabo.UNetCustom {
         {
             Initialize();
 
-            m_ServerHostId = NetworkTransport.AddHost(m_HostTopology, listenPort);
+            m_ServerHostId = NetworkManager.activeTransport.AddHost(m_HostTopology, listenPort, null);
             if (LogFilter.logDebug) { Debug.Log("Server Host Slot Id: " + m_ServerHostId); }
 
             Update();
 
             byte error;
-            NetworkTransport.ConnectAsNetworkHost(
+            NetworkManager.activeTransport.ConnectAsNetworkHost(
                 m_ServerHostId,
                 relayIp,
                 relayPort,
@@ -164,7 +164,7 @@ namespace PlanetaGameLabo.UNetCustom {
         public void Stop()
         {
             if (LogFilter.logDebug) { Debug.Log("NetworkServerSimple stop "); }
-            NetworkTransport.RemoveHost(m_ServerHostId);
+            NetworkManager.activeTransport.RemoveHost(m_ServerHostId);
             m_ServerHostId = -1;
         }
 
@@ -212,7 +212,7 @@ namespace PlanetaGameLabo.UNetCustom {
             var networkEvent = NetworkEventType.DataEvent;
             if (m_RelaySlotId != -1)
             {
-                networkEvent = NetworkTransport.ReceiveRelayEventFromHost(m_ServerHostId, out error);
+                networkEvent = NetworkManager.activeTransport.ReceiveRelayEventFromHost(m_ServerHostId, out error);
                 if (NetworkEventType.Nothing != networkEvent)
                 {
                     if (LogFilter.logDebug) { Debug.Log("NetGroup event:" + networkEvent); }
@@ -229,7 +229,7 @@ namespace PlanetaGameLabo.UNetCustom {
 
             do
             {
-                networkEvent = NetworkTransport.ReceiveFromHost(m_ServerHostId, out connectionId, out channelId, m_MsgBuffer, (int)m_MsgBuffer.Length, out receivedSize, out error);
+                networkEvent = NetworkManager.activeTransport.ReceiveFromHost(m_ServerHostId, out connectionId, out channelId, m_MsgBuffer, (int)m_MsgBuffer.Length, out receivedSize, out error);
                 if (networkEvent != NetworkEventType.Nothing)
                 {
                     if (LogFilter.logDev) { Debug.Log("Server event: host=" + m_ServerHostId + " event=" + networkEvent + " error=" + error); }
@@ -318,7 +318,7 @@ namespace PlanetaGameLabo.UNetCustom {
             NetworkID networkId;
             NodeID node;
             byte error2;
-            NetworkTransport.GetConnectionInfo(m_ServerHostId, connectionId, out address, out port, out networkId, out node, out error2);
+            NetworkManager.activeTransport.GetConnectionInfo(m_ServerHostId, connectionId, out address, out port, out networkId, out node, out error2);
 
             NetworkConnection conn = (NetworkConnection)Activator.CreateInstance(m_NetworkConnectionClass);
             conn.SetHandlers(m_MessageHandlers);

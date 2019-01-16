@@ -171,7 +171,7 @@ namespace PlanetaGameLabo.UNetCustom {
 
             m_Connection.Disconnect();
             m_Connection = null;
-            m_ClientId = NetworkTransport.AddHost(m_HostTopology, m_HostPort);
+            m_ClientId = NetworkManager.activeTransport.AddHost(m_HostTopology, m_HostPort, null);
 
             string hostnameOrIp = serverIp;
             m_ServerPort = serverPort;
@@ -224,7 +224,7 @@ namespace PlanetaGameLabo.UNetCustom {
 
             m_Connection.Disconnect();
             m_Connection = null;
-            m_ClientId = NetworkTransport.AddHost(m_HostTopology, m_HostPort);
+            m_ClientId = NetworkManager.activeTransport.AddHost(m_HostTopology, m_HostPort, null);
 
             if (secureTunnelEndPoint == null)
             {
@@ -263,7 +263,7 @@ namespace PlanetaGameLabo.UNetCustom {
 
             try
             {
-                m_ClientConnectionId = NetworkTransport.ConnectEndPoint(m_ClientId, m_RemoteEndPoint, 0, out error);
+                m_ClientConnectionId = NetworkManager.activeTransport.ConnectEndPoint(m_ClientId, m_RemoteEndPoint, 0, out error);
             }
             catch (Exception ex)
             {
@@ -336,7 +336,7 @@ namespace PlanetaGameLabo.UNetCustom {
 
         public void Connect(EndPoint secureTunnelEndPoint)
         {
-            bool usePlatformSpecificProtocols = UnityInternal.NetworkTransportInternalDoesEndPointUsePlatformProtocols(secureTunnelEndPoint);
+            bool usePlatformSpecificProtocols = NetworkManager.activeTransport.DoesEndPointUsePlatformProtocols(secureTunnelEndPoint);
             PrepareForConnect(usePlatformSpecificProtocols);
 
             if (LogFilter.logDebug) { Debug.Log("Client Connect to remoteSockAddr"); }
@@ -364,7 +364,7 @@ namespace PlanetaGameLabo.UNetCustom {
                 Connect(tmp.Address.ToString(), tmp.Port);
                 return;
             }
-            if ((endPointType != "UnityEngine.XboxOne.XboxOneEndPoint") && (endPointType != "UnityEngine.PS4.SceEndPoint") && (endPointType != "UnityEngine.PSVita.SceEndPoint"))
+            if ((endPointType != "UnityEngine.XboxOne.XboxOneEndPoint") && (endPointType != "UnityEngine.PS4.SceEndPoint"))
             {
                 if (LogFilter.logError) { Debug.LogError("Connect failed: invalid Endpoint (not IPEndPoint or XboxOneEndPoint or SceEndPoint)"); }
                 m_AsyncConnect = ConnectState.Failed;
@@ -378,7 +378,7 @@ namespace PlanetaGameLabo.UNetCustom {
 
             try
             {
-                m_ClientConnectionId = NetworkTransport.ConnectEndPoint(m_ClientId, m_RemoteEndPoint, 0, out error);
+                m_ClientConnectionId = NetworkManager.activeTransport.ConnectEndPoint(m_ClientId, m_RemoteEndPoint, 0, out error);
             }
             catch (Exception ex)
             {
@@ -427,11 +427,11 @@ namespace PlanetaGameLabo.UNetCustom {
                 int maxTimeout = m_SimulatedLatency * 3;
 
                 if (LogFilter.logDebug) { Debug.Log("AddHost Using Simulator " + minTimeout + "/" + maxTimeout); }
-                m_ClientId = NetworkTransport.AddHostWithSimulator(m_HostTopology, minTimeout, maxTimeout, m_HostPort);
+                m_ClientId = NetworkManager.activeTransport.AddHostWithSimulator(m_HostTopology, minTimeout, maxTimeout, m_HostPort);
             }
             else
             {
-                m_ClientId = NetworkTransport.AddHost(m_HostTopology, m_HostPort);
+                m_ClientId = NetworkManager.activeTransport.AddHost(m_HostTopology, m_HostPort, null);
             }
         }
 
@@ -483,11 +483,11 @@ namespace PlanetaGameLabo.UNetCustom {
                         m_SimulatedLatency,
                         m_PacketLoss);
 
-                m_ClientConnectionId = NetworkTransport.ConnectWithSimulator(m_ClientId, m_ServerIp, m_ServerPort, 0, out error, simConfig);
+                m_ClientConnectionId = NetworkManager.activeTransport.ConnectWithSimulator(m_ClientId, m_ServerIp, m_ServerPort, 0, out error, simConfig);
             }
             else
             {
-                m_ClientConnectionId = NetworkTransport.Connect(m_ClientId, m_ServerIp, m_ServerPort, 0, out error);
+                m_ClientConnectionId = NetworkManager.activeTransport.Connect(m_ClientId, m_ServerIp, m_ServerPort, 0, out error);
             }
 
             m_Connection = (NetworkConnection)Activator.CreateInstance(m_NetworkConnectionClass);
@@ -502,7 +502,7 @@ namespace PlanetaGameLabo.UNetCustom {
             Update();
 
             byte error;
-            m_ClientConnectionId = NetworkTransport.ConnectToNetworkPeer(
+            m_ClientConnectionId = NetworkManager.activeTransport.ConnectToNetworkPeer(
                     m_ClientId,
                     info.address,
                     info.port,
@@ -531,7 +531,7 @@ namespace PlanetaGameLabo.UNetCustom {
                 m_Connection = null;
                 if (m_ClientId != -1)
                 {
-                    NetworkTransport.RemoveHost(m_ClientId);
+                    NetworkManager.activeTransport.RemoveHost(m_ClientId);
                     m_ClientId = -1;
                 }
             }
@@ -642,7 +642,7 @@ namespace PlanetaGameLabo.UNetCustom {
             if (LogFilter.logDebug) Debug.Log("Shutting down client " + m_ClientId);
             if (m_ClientId != -1)
             {
-                NetworkTransport.RemoveHost(m_ClientId);
+                NetworkManager.activeTransport.RemoveHost(m_ClientId);
                 m_ClientId = -1;
             }
             RemoveClient(this);
@@ -701,7 +701,7 @@ namespace PlanetaGameLabo.UNetCustom {
                 int receivedSize;
                 byte error;
 
-                networkEvent = NetworkTransport.ReceiveFromHost(m_ClientId, out connectionId, out channelId, m_MsgBuffer, (ushort)m_MsgBuffer.Length, out receivedSize, out error);
+                networkEvent = NetworkManager.activeTransport.ReceiveFromHost(m_ClientId, out connectionId, out channelId, m_MsgBuffer, (ushort)m_MsgBuffer.Length, out receivedSize, out error);
                 if (m_Connection != null) m_Connection.lastError = (NetworkError)error;
 
                 if (networkEvent != NetworkEventType.Nothing)
@@ -880,7 +880,7 @@ namespace PlanetaGameLabo.UNetCustom {
                 return 0;
 
             byte err;
-            return NetworkTransport.GetCurrentRTT(m_ClientId, m_ClientConnectionId, out err);
+            return NetworkManager.activeTransport.GetCurrentRTT(m_ClientId, m_ClientConnectionId, out err);
         }
 
         internal void RegisterSystemHandlers(bool localClient)
@@ -980,7 +980,7 @@ namespace PlanetaGameLabo.UNetCustom {
 
             if (!s_IsActive && state)
             {
-                NetworkTransport.Init();
+                NetworkManager.activeTransport.Init();
             }
             s_IsActive = state;
         }

@@ -45,7 +45,13 @@
     <Compile Include="..\Runtime\ClientScene.cs" />
     <Compile Include="..\Runtime\ConnectionArray.cs" />
     <Compile Include="..\Runtime\CustomAttributes.cs" />
+    <Compile Include="..\Runtime\DefaultNetworkTransport.cs">
+      <Link>DefaultNetworkTransport.cs</Link>
+    </Compile>
     <Compile Include="..\Runtime\DotNetCompatibility.cs" />
+    <Compile Include="..\Runtime\INetworkTransport.cs">
+      <Link>INetworkTransport.cs</Link>
+    </Compile>
     <Compile Include="..\Runtime\LocalConnections.cs" />
     <Compile Include="..\Runtime\LogFilter.cs" />
     <Compile Include="..\Runtime\Messages.cs" />

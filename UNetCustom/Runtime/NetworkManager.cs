@@ -121,6 +121,8 @@ namespace PlanetaGameLabo.UNetCustom {
         private EndPoint m_EndPoint;
         bool m_ClientLoadedScene;
 
+        static INetworkTransport s_ActiveTransport = new DefaultNetworkTransport();
+
         // properties
         public int networkPort               { get { return m_NetworkPort; } set { m_NetworkPort = value; } }
         public bool serverBindToIP           { get { return m_ServerBindToIP; } set { m_ServerBindToIP = value; }}
@@ -185,6 +187,36 @@ namespace PlanetaGameLabo.UNetCustom {
                     }
                 }
                 return numPlayers;
+            }
+        }
+
+        public static INetworkTransport defaultTransport
+        {
+            get
+            {
+                return new DefaultNetworkTransport();
+            }
+        }
+
+        public static INetworkTransport activeTransport
+        {
+            get
+            {
+                return s_ActiveTransport;
+            }
+            set
+            {
+                if (s_ActiveTransport != null && s_ActiveTransport.IsStarted)
+                {
+                    throw new InvalidOperationException("Cannot change network transport when current transport object is in use.");
+                }
+
+                if (value == null)
+                {
+                    throw new ArgumentNullException("Cannot set active transport to null.");
+                }
+
+                s_ActiveTransport = value;
             }
         }
 
@@ -389,7 +421,7 @@ namespace PlanetaGameLabo.UNetCustom {
 
             if (m_GlobalConfig != null)
             {
-                NetworkTransport.Init(m_GlobalConfig);
+                NetworkManager.activeTransport.Init(m_GlobalConfig);
             }
 
             // passing a config overrides setting the connectionConfig property
@@ -517,7 +549,7 @@ namespace PlanetaGameLabo.UNetCustom {
 
             if (m_GlobalConfig != null)
             {
-                NetworkTransport.Init(m_GlobalConfig);
+                NetworkManager.activeTransport.Init(m_GlobalConfig);
             }
 
             client = new NetworkClient();
@@ -525,7 +557,7 @@ namespace PlanetaGameLabo.UNetCustom {
 
             if (config != null)
             {
-                if ((config.UsePlatformSpecificProtocols) && (UnityEngine.Application.platform != RuntimePlatform.PS4) && (UnityEngine.Application.platform != RuntimePlatform.PSP2))
+                if ((config.UsePlatformSpecificProtocols) && (UnityEngine.Application.platform != RuntimePlatform.PS4))
                     throw new ArgumentOutOfRangeException("Platform specific protocols are not supported on this platform");
 
                 client.Configure(config, 1);
@@ -539,7 +571,7 @@ namespace PlanetaGameLabo.UNetCustom {
                     {
                         m_ConnectionConfig.AddChannel(m_Channels[i]);
                     }
-                    if ((m_ConnectionConfig.UsePlatformSpecificProtocols) && (UnityEngine.Application.platform != RuntimePlatform.PS4) && (UnityEngine.Application.platform != RuntimePlatform.PSP2))
+                    if ((m_ConnectionConfig.UsePlatformSpecificProtocols) && (UnityEngine.Application.platform != RuntimePlatform.PS4))
                         throw new ArgumentOutOfRangeException("Platform specific protocols are not supported on this platform");
                     client.Configure(m_ConnectionConfig, m_MaxConnections);
                 }
@@ -605,7 +637,7 @@ namespace PlanetaGameLabo.UNetCustom {
         public virtual NetworkClient StartHost(ConnectionConfig config, int maxConnections)
         {
             OnStartHost();
-            if (StartServer(config, maxConnections))
+            if (StartServer(null, config, maxConnections))
             {
                 var client = ConnectLocalClient();
                 OnServerConnect(client.connection);
@@ -850,7 +882,7 @@ namespace PlanetaGameLabo.UNetCustom {
 
                 singleton.StopHost();
 
-                NetworkTransport.Shutdown();
+                NetworkManager.activeTransport.Shutdown();
             }
 #endif
 

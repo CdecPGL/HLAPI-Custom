@@ -78,8 +78,8 @@ namespace PlanetaGameLabo.UNetCustom {
 #if ENABLE_UNET_HOST_MIGRATION
             s_ReconnectId = ReconnectIdInvalid;
 #endif
-            NetworkTransport.Shutdown();
-            NetworkTransport.Init();
+            NetworkManager.activeTransport.Shutdown();
+            NetworkManager.activeTransport.Init();
         }
 
         internal static bool GetPlayerController(short playerControllerId, out PlayerController player)

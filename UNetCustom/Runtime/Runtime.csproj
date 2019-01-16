@@ -44,7 +44,9 @@
     <Compile Include="ClientScene.cs" />
     <Compile Include="ConnectionArray.cs" />
     <Compile Include="CustomAttributes.cs" />
+    <Compile Include="DefaultNetworkTransport.cs" />
     <Compile Include="DotNetCompatibility.cs" />
+    <Compile Include="INetworkTransport.cs" />
     <Compile Include="LocalConnections.cs" />
     <Compile Include="LogFilter.cs" />
     <Compile Include="Messages.cs" />

@@ -154,7 +154,7 @@ namespace PlanetaGameLabo.Editor {
                 var prefabGO = UnityEditor.PrefabUtility.GetCorrespondingObjectFromSource(uv.gameObject) as GameObject;
                 if (prefabGO)
                 {
-                    var prefabRootGO = UnityEditor.PrefabUtility.FindPrefabRoot(prefabGO);
+                    var prefabRootGO = prefabGO.transform.root.gameObject;
                     if (prefabRootGO)
                     {
                         var identities = prefabRootGO.GetComponentsInChildren<NetworkIdentity>();

@@ -276,7 +276,7 @@ namespace PlanetaGameLabo.UNetCustom {
                     NetworkID networkId;
                     NodeID node;
                     byte error2;
-                    NetworkTransport.GetConnectionInfo(NetworkServer.serverHostId, conn.connectionId, out address, out port, out networkId, out node, out error2);
+                    NetworkManager.activeTransport.GetConnectionInfo(NetworkServer.serverHostId, conn.connectionId, out address, out port, out networkId, out node, out error2);
 
                     peerInfo.connectionId = conn.connectionId;
                     peerInfo.port = port;
@@ -572,7 +572,7 @@ namespace PlanetaGameLabo.UNetCustom {
 
 
             byte error;
-            NetworkTransport.Disconnect(m_Client.hostId, m_Client.connection.connectionId, out error);
+            NetworkManager.activeTransport.Disconnect(m_Client.hostId, m_Client.connection.connectionId, out error);
 
             if (m_OldServerConnectionId != -1)
             {
@@ -711,9 +711,6 @@ namespace PlanetaGameLabo.UNetCustom {
 
             int yourConnectionId = -1;
             youAreNewHost = false;
-
-            if (m_Peers == null)
-                return false;
 
             for (int peerId = 0; peerId < m_Peers.Length; peerId++)
             {
